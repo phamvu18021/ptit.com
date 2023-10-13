@@ -6,12 +6,21 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  useDisclosure,
   Stack,
   Text,
+  Input,
 } from "@chakra-ui/react";
+import { IconButton } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+
 import Link from "next/link";
 import { BsChevronRight } from "react-icons/bs";
-
+import { useState, useEffect } from "react";
+import { BtnTheme } from "@/components/BtnTheme";
+import { ModalBase } from "@/components/Modal";
+import { FormPoup } from "@/components/FormContact";
+import { FormInputs } from "@/components/FormInputs";
 interface INavItem {
   title: string;
   children?: Array<INavItem>;
@@ -19,52 +28,107 @@ interface INavItem {
 }
 
 export const DesktopNav = () => {
-  const linkColor = "#054659";
+  // const [active, setActive] = useState("hidden");
+  const linkColor = "#000000";
   const linkHoverColor = "#FA692E";
   const popoverContentBgColor = "white";
-
+  const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
-    <Stack direction={"row"} spacing={4}>
-      {menus.map((navItem) => (
-        <Box key={navItem.title}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
+    <>
+      <Stack direction={"column"}>
+        <Stack
+          direction={"row"}
+          justifyContent={"flex-end"}
+          alignItems={"flex-end"}
+          // paddingRight={14}
+        >
+          <BtnTheme
+            color={"white"}
+            colorScheme="red"
+            size={{ base: "sm", md: "lg" }}
+            onClick={onToggle}
+          >
+            Đăng ký tư vấn
+          </BtnTheme>
+          <>
+            {/* <Popover
+            placement="bottom"
+          >
             <PopoverTrigger>
-              <Box
-                as={Link}
-                p={2}
-                href={navItem.path ?? "#"}
-                fontSize={"md"}
-                fontWeight={600}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-              >
-                {navItem.title}
-              </Box>
+              <IconButton alignItems={"center"} 
+              border={"1px solid black"}
+              aria-label="Search database" icon={<SearchIcon />} />
             </PopoverTrigger>
+            <PopoverContent p={5}>
+              <Form />
+            </PopoverContent>
+          </Popover> */}
+          </>
+        </Stack>
 
-            {navItem.childs && (
-              <PopoverContent
-                border={0}
-                boxShadow={"xl"}
-                bg={popoverContentBgColor}
-                p={4}
-                rounded={"xl"}
-                minW={"sm"}
-              >
-                <Stack>
-                  {navItem.childs.map((child) => (
-                    <DesktopSubNav key={child.title} {...child} />
-                  ))}
-                </Stack>
-              </PopoverContent>
-            )}
+        <Stack direction={"row"} spacing={8} alignItems={"center"}>
+          {menus.map((navItem) => (
+            <Box key={navItem.title}>
+              <Popover trigger={"hover"} placement={"bottom-start"}>
+                <PopoverTrigger>
+                  <Box
+                    // onClickCapture={() => setActive("")}
+
+                    as={Link}
+                    p={2}
+                    href={navItem.path ?? "#"}
+                    fontSize={"0.9rem"}
+                    fontWeight={700}
+                    color={linkColor}
+                    _hover={{
+                      // textDecoration: "underline  1px solid black",
+                      color: linkHoverColor,
+                    }}
+                  >
+                    {navItem.title}
+                  </Box>
+                </PopoverTrigger>
+
+                {navItem.childs && (
+                  <PopoverContent
+                    border={0}
+                    boxShadow={"xl"}
+                    bg={popoverContentBgColor}
+                    p={4}
+                    rounded={"xl"}
+                    minW={"sm"}
+                    maxW={300}
+                  >
+                    <Stack>
+                      {navItem.childs.map((child) => (
+                        <DesktopSubNav key={child.title} {...child} />
+                      ))}
+                    </Stack>
+                  </PopoverContent>
+                )}
+              </Popover>
+            </Box>
+          ))}
+
+          <Popover
+            // isOpen={isOpen}
+            // onOpen={onOpen}
+            // onClose={onClose}
+            placement="bottom"
+          >
+            <PopoverTrigger>
+              <IconButton aria-label="Search database" icon={<SearchIcon />} />
+            </PopoverTrigger>
+            <PopoverContent p={5}>
+              <FormInputs />
+            </PopoverContent>
           </Popover>
-        </Box>
-      ))}
-    </Stack>
+        </Stack>
+      </Stack>
+      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <FormPoup title="Để lại thông tin" />
+      </ModalBase>
+    </>
   );
 };
 

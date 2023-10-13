@@ -26,7 +26,12 @@ import { InputRes } from "../../components/InputRes";
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
-    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
+    <Text
+      fontWeight={"500"}
+      fontSize={"lg"}
+      mb={2}
+      borderBottom={"1px white solid"}
+    >
       {children}
     </Text>
   );
@@ -69,8 +74,8 @@ export const Footer = () => {
   return (
     <>
       <Box bg={"#054659"} color={"White"}>
-        <Container as={Stack} maxW={"6xl"} py={10}>
-          <Flex justify="center" align={"center"} direction="column" mb="32px">
+        <Container as={Stack} maxW={"8xl"} py={10}>
+          {/* <Flex justify="center" align={"center"} direction="column" mb="32px">
             <Heading size="md" textAlign="center" mb={4}>
               Đăng ký nhận tư vấn
             </Heading>
@@ -81,71 +86,80 @@ export const Footer = () => {
                 onClick={onToggle}
               />
             </Box>
-          </Flex>
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 5 }} spacing={8}>
-            <GridItem colSpan={{ base: 1, sm: 2 }}>
-              <Stack align={"flex-start"}>
-                <ListHeader>Thông tin liên hệ</ListHeader>
-                <Box as={Link} href={"#"}>
-                  Văn phòng tuyển sinh:
-                </Box>
-                <UnorderedList>
-                  <ListItem>
-                    Hà Nội: Số 116 Trần Vĩ, Phường Mai Dịch, Quận Cầu Giấy,
-                    Thành Phố Hà Nội
-                  </ListItem>
-                  <ListItem>
-                    Hồ Chí Minh: Số 91 Ký Con, phường Nguyễn Thái Bình, Quận 1,
-                    TP Hồ Chí Minh
-                  </ListItem>
-                </UnorderedList>
-                <Box as={Link} href={"tel:0914709118"}>
-                  Hotline: 0914709118
-                </Box>
-                <Box as={Link} href={"mailto:daihoctructuyen@tnu.edu.vn"}>
-                  Email: daihoctructuyen@tnu.edu.vn
-                </Box>
-                <Box
-                  as={Link}
-                  href={
-                    "https://www.facebook.com/groups/800071498531146?locale=vi_VN"
-                  }
-                  textDecor={"underline"}
-                >
-                  Group Facebook: daihocthainguyen - elearning
-                </Box>
-                <Box
-                  as={Link}
-                  href={"https://www.facebook.com/TNUElearning?locale=vi_VN"}
-                  textDecor={"underline"}
-                >
-                  Fanpage: daihocthainguyen - elearning
-                </Box>
-              </Stack>
-            </GridItem>
+          </Flex> */}
+          <SimpleGrid columns={{ base: 1, lg: 3, md: 3 }} spacing={16}>
+            <Stack>
+              <Stack direction={"row"} align={"flex-start"} gap={5} mb={5}>
+                <Image
+                  src={"/Logo_PTIT_University.png"}
+                  width={150}
+                  height={100}
+                  alt="Tìm đối tác"
+                  style={{ float: "left" }}
+                  // style={{ borderRadius: "6px" }}
+                />
 
-            <Stack align={"flex-start"}>
-              <ListHeader>Hỗ trợ</ListHeader>
-              <Box as={Link} href={"/gioi-thieu"}>
-                Về chúng tôi
+                <Text fontWeight={"500"} fontSize={"2xl"} mb={2} mt={5}>
+                  HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+                </Text>
+              </Stack>
+              <Box as={Link} href={"#"}>
+                Trụ sở chính:
               </Box>
-              <Box as={Link} href={"/lich-khai-giang"}>
-                Lịch khai giảng
+              <UnorderedList>
+                <ListItem>122 Hoàng Quốc Việt, Q.Cầu Giấy, Hà Nội.</ListItem>
+              </UnorderedList>
+
+              <Box
+                as={Link}
+                href={"https://bcvt.edu.vn/"}
+                textDecor={"underline"}
+              >
+                Website: https://bcvt.edu.vn/
               </Box>
-              <Box as={Link} href={"/dang-ky"}>
-                Đăng ký
-              </Box>
-              <Box as={Link} href={"/tin-tuc"}>
-                Tin tức
+
+              <Box
+                as={Link}
+                href={"https://www.facebook.com/bcvt.edu.vn"}
+                textDecor={"underline"}
+              >
+                Fanpage: https://www.facebook.com/bcvt.edu.vn
               </Box>
             </Stack>
-
             <Stack align={"flex-start"}>
-              <ListHeader>Hợp tác tuyển sinh</ListHeader>
+              <ListHeader>DANH SÁCH NGÀNH HỌC</ListHeader>
+              <Box as={Link} href={"/gioi-thieu"}>
+                Quản trị kinh doanh
+              </Box>
+              <Box as={Link} href={"/lich-khai-giang"}>
+                Công nghệ thông tin
+              </Box>
+              <Box as={Link} href={"/dang-ky"}>
+                Kỹ thuật Điện tử Viễn thông
+              </Box>
+            </Stack>
+            <Stack align={"flex-start"}>
+              <ListHeader>HỢP TÁC TUYỂN SINH</ListHeader>
+              <Box as={Link} href={"#"}>
+                Trạm tuyển sinh:
+              </Box>
+              <UnorderedList>
+                <ListItem>
+                  Hà Nội: Số 116 Trần Vĩ, Phường Mai Dịch, Quận Cầu Giấy, Thành
+                  Phố Hà Nội
+                </ListItem>
+                {/* <ListItem>
+                  Hồ Chí Minh: Số 91 Ký Con, phường Nguyễn Thái Bình, Quận 1, TP
+                  Hồ Chí Minh
+                </ListItem> */}
+              </UnorderedList>
+              <Box as={Link} href={"tel:0846770022"}>
+                Hotline: 0846770022
+              </Box>
               <Link href={"https://timdoitac.aum.edu.vn/"}>
                 <Image
                   src={"/timdoitac.jpg"}
-                  width={150}
+                  width={300}
                   height={100}
                   alt="Tìm đối tác"
                   style={{ borderRadius: "6px" }}
@@ -153,6 +167,7 @@ export const Footer = () => {
               </Link>
             </Stack>
 
+            {/* 
             <Stack align={"flex-start"}>
               <ListHeader>Mạng xã hội</ListHeader>
               <Stack direction={"row"} spacing={6}>
@@ -169,7 +184,7 @@ export const Footer = () => {
                   <FaTiktok />
                 </SocialButton>
               </Stack>
-            </Stack>
+            </Stack> */}
           </SimpleGrid>
         </Container>
 
@@ -187,9 +202,9 @@ export const Footer = () => {
           </Container>
         </Box>
       </Box>
-      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+      {/* <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
         <FormPoup title="Để lại thông tin" />
-      </ModalBase>
+      </ModalBase> */}
     </>
   );
 };

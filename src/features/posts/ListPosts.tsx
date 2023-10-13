@@ -1,9 +1,18 @@
 "use client";
 
-import { CardBlogVert } from "@/components/CardBlogVert";
+import { CardBlog } from "@/components/CardBlog";
 import { Loading } from "@/components/Loading";
 import { LayoutBottom } from "@/layouts/layoutPosts/LayoutBottom";
-import { Box, Grid, HStack, Heading, VStack } from "@chakra-ui/react";
+import { formatDate } from "@/ultil/date";
+import {
+  Box,
+  Grid,
+  HStack,
+  Heading,
+  VStack,
+  SimpleGrid,
+  GridItem,
+} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -85,29 +94,37 @@ export const ListPosts = ({
     <LayoutBottom sticky="120px">
       <Box>
         <Heading
-          size={"lg"}
-          pb={"20px"}
-          textAlign={{ base: "center", lg: "start" }}
+          size={"xl"}
+          color={"red.600"}
+          pb={"48px"}
+          textAlign={{ base: "center", lg: "center" }}
         >
-          Tin tức
+          Tin Tức
         </Heading>
+
         {!isLoading && (
-          <VStack spacing={"16px"}>
-            {posts?.map((post: any, index: number) => (
-              <CardBlogVert
-                key={index}
-                title={post?.title?.rendered}
-                desc={xss(post.excerpt.rendered)}
-                tag="tin tức"
-                image={post?.featured_image || ""}
-                path={`/tin-tuc/${post?.slug}`}
-              />
-            ))}
-            {posts?.length === 0 && (
-              <Grid placeItems={"center"} height={"40vh"}>
-                Dữ liệu đang được chúng tôi cập nhập
-              </Grid>
-            )}
+          <VStack spacing={"0px"}>
+            <SimpleGrid
+              columns={{ base: 1, md: 2, lg: 2 }}
+              // spacing={"4"}
+            >
+              {posts?.map((post: any, index: number) => (
+                <CardBlog
+                  date={post?.date ? formatDate(post.date) : ""}
+                  key={index}
+                  title={post?.title?.rendered}
+                  desc={xss(post.excerpt.rendered)}
+                  tag="tin tức"
+                  image={post?.featured_image || ""}
+                  path={`/tin-tuc/${post?.slug}`}
+                />
+              ))}
+              {posts?.length === 0 && (
+                <Grid placeItems={"center"} height={"40vh"}>
+                  Dữ liệu đang được chúng tôi cập nhập
+                </Grid>
+              )}
+            </SimpleGrid>
           </VStack>
         )}
 

@@ -354,6 +354,30 @@ export const FormMain = ({ title }: { title?: string }) => {
   );
 };
 
+export const FormMain2 = ({ title }: { title?: string }) => {
+  useEffect(() => {
+    comonForm({
+      id: "getfly-optin-form-iframe-1695175881156",
+      href: "https://aum.getflycrm.com/api/forms/viewform/?key=AxFWg9xmg9RGLjPsUiSwBCtbhyYTGWB3rBOtmMnxfQCEc9Draw&referrer=",
+    });
+  }, []);
+  return (
+    <Box minH={"45vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          pb={"16px"}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
+      <div id="getfly-optin-form-iframe-1695175881156"></div>
+    </Box>
+  );
+};
 export const FormPoup = ({ title }: { title?: string }) => {
   useEffect(() => {
     comonForm({
@@ -377,6 +401,33 @@ export const FormPoup = ({ title }: { title?: string }) => {
       )}
 
       <div id="getfly-optin-form-iframe-1695175842604" />
+    </Box>
+  );
+};
+
+export const FormPoup2 = ({ title }: { title?: string }) => {
+  useEffect(() => {
+    comonForm({
+      id: "getfly-optin-form-iframe-1695175842605",
+      href: 'https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="',
+    });
+  }, []);
+
+  return (
+    <Box minH={"45vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          pb={"16px"}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
+
+      <div id="getfly-optin-form-iframe-1695175842605" />
     </Box>
   );
 };

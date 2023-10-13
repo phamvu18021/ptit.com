@@ -14,7 +14,7 @@ export const LichKg = ({
       {!isLoading && (
         <Frame
           title1="Cập nhật lịch khai giảng dự kiến"
-          list1={list}
+          // list1={list}
           label="Đăng ký tư vấn"
         />
       )}

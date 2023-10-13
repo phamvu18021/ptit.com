@@ -34,7 +34,7 @@ export const HeaderTop = ({ hasSearch }: { hasSearch?: boolean }) => {
   return (
     <HStack align={"center"} justify={"space-between"}>
       <HStack flex={1}>
-        <Tags type="tel" label="0914709118">
+        <Tags type="tel" label="0846770022">
           <Icon as={LuPhone} />
         </Tags>
 

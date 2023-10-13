@@ -17,14 +17,15 @@ import {
   IconButton,
   Stack,
   useDisclosure,
+  Input,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRef } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsChevronDown } from "react-icons/bs";
+import { BsChevronDown, BsJustify } from "react-icons/bs";
 import { HeaderTop } from "./HeaderTop";
 import { Logo } from "./Logo";
-
+import { FormInputs } from "@/components/FormInputs";
 interface INavItem {
   title: string;
   childs?: Array<{ title: string; childs?: Array<{}>; path?: string }>;
@@ -81,7 +82,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
                 style={{
                   paddingTop: "8px",
                   paddingBottom: "8px",
-                  fontWeight: "600",
+                  fontWeight: "500",
                   width: "100%",
                 }}
                 href={child.path ?? "/"}
@@ -114,6 +115,7 @@ export const MobileNav = () => {
         variant={"ghost"}
         aria-label={"Toggle Navigation"}
       />
+
       <Drawer
         isOpen={width < 992 ? isOpen : false}
         placement="left"
@@ -124,13 +126,15 @@ export const MobileNav = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Flex justify={"center"}>
+            <Flex>
               <Logo />
             </Flex>
           </DrawerHeader>
           <Divider />
 
           <DrawerBody>
+            {/* <Input w={280} border={"1px solid #BFBFBF "} borderRadius={0} px={4} placeholder="Tim kiem..." /> */}
+            <FormInputs/>
             <Stack bg={"white"} p={4} display={{ lg: "none" }}>
               {menus.map((navItem) => (
                 <MobileNavItem

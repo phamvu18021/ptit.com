@@ -34,10 +34,12 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
 
 interface IPostPage {
   post: any;
+
 }
 
 const Page = (props: IPostPage) => {
   const { post } = props;
+
   return (
     <>
       <NextSeo
@@ -57,7 +59,7 @@ const Page = (props: IPostPage) => {
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return <LayoutPost>{page}</LayoutPost>;
+  return <LayoutPost >{page}</LayoutPost>;
 };
 
 export default Page;

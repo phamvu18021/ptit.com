@@ -64,9 +64,9 @@ export const Home = ({ news, notifis }: { news: any[]; notifis: any[] }) => {
   return (
     <>
       <Banner />
-      <Box>
+      {/* <Box>
         <TextScroll />
-      </Box>
+      </Box> */}
       <Categorys />
       <Benefit />
       <Box py={"62px"}>
@@ -77,7 +77,7 @@ export const Home = ({ news, notifis }: { news: any[]; notifis: any[] }) => {
       <Review />
       <Contact />
       <Event news={news} notifis={notifis} />
-
+      
       <ModalBase isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       <Box
         pos={"fixed"}
@@ -87,12 +87,7 @@ export const Home = ({ news, notifis }: { news: any[]; notifis: any[] }) => {
         className="CTA"
         zIndex={5}
       >
-        <VStack>
-          {/* <BtnEmail aria-label="Email" /> */}
-          <BtnMes aria-label="messenter" />
-          <BtnZalo aria-label="zalo" />
-          <BtnPhone aria-label="phone" />
-        </VStack>
+ 
       </Box>
     </>
   );

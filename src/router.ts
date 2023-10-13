@@ -1,16 +1,12 @@
 export const menus = [
   {
     path: "/", // the url
-    title: "Trang chủ",
-  },
-  {
-    path: "/gioi-thieu", // the url
-    title: "Giới thiệu",
+    title: "TRANG CHỦ",
   },
 
   {
     path: "#", // the url
-    title: "Ngành học",
+    title: "NGÀNH HỌC",
     childs: [
       {
         path: "/nganh-cong-nghe-thong-tin",
@@ -24,42 +20,16 @@ export const menus = [
         path: "/nganh-quan-tri-kinh-doanh",
         title: "Quản trị kinh doanh",
       },
-      {
-        path: "/nganh-luat-kinh-te",
-        title: "Luật kinh tế",
-      },
-      {
-        path: "/nganh-thuong-mai-dien-tu",
-        title: "Thương mại điện tử và Marketing số",
-      },
-      {
-        path: "/nganh-ngon-ngu-anh",
-        title: "Ngôn ngữ Anh",
-      },
-      {
-        path: "/nganh-ngon-ngu-trung",
-        title: "Ngôn ngữ Trung",
-      },
-      {
-        path: "/nganh-ke-toan",
-        title: "Kế toán",
-      },
-      {
-        path: "/nganh-tai-chinh-ngan-hang",
-        title: "Tài chính ngân hàng",
-      },
     ],
   },
+
   {
-    path: "/lich-khai-giang", // the url
-    title: "Lịch khai giảng",
-  },
-  {
-    path: "/lien-he", // the url
-    title: "Liên hệ",
+    path: "/Tuyen-sinh", // the url
+    title: "TUYỂN SINH",
   },
   {
     path: "/tin-tuc", // the url
-    title: "Tin tức", // view rendered
+    title: "TIN TỨC & SỰ KIỆN", // view rendered
   },
+
 ];
