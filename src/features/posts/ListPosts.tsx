@@ -103,29 +103,25 @@ export const ListPosts = ({
         </Heading>
 
         {!isLoading && (
-          <VStack spacing={"0px"}>
-            <SimpleGrid
-              columns={{ base: 1, md: 2, lg: 2 }}
-              // spacing={"4"}
-            >
-              {posts?.map((post: any, index: number) => (
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} spacing={"8"}>
+            {posts?.map((post: any, index: number) => (
+              <GridItem key={index}>
                 <CardBlog
                   date={post?.date ? formatDate(post.date) : ""}
-                  key={index}
                   title={post?.title?.rendered}
                   desc={xss(post.excerpt.rendered)}
                   tag="tin tức"
                   image={post?.featured_image || ""}
                   path={`/tin-tuc/${post?.slug}`}
                 />
-              ))}
-              {posts?.length === 0 && (
-                <Grid placeItems={"center"} height={"40vh"}>
-                  Dữ liệu đang được chúng tôi cập nhập
-                </Grid>
-              )}
-            </SimpleGrid>
-          </VStack>
+              </GridItem>
+            ))}
+            {posts?.length === 0 && (
+              <Grid placeItems={"center"} height={"40vh"}>
+                Dữ liệu đang được chúng tôi cập nhập
+              </Grid>
+            )}
+          </SimpleGrid>
         )}
 
         {isLoading && <Loading />}

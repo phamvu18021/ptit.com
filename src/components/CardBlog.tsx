@@ -52,8 +52,6 @@ export const CardBlog = ({
       href={path}
       py={4}
       px={6}
-      // maxW={"324px"}
-      // pos={"relative"}
       transition={"all ease .4s"}
       _hover={{ transform: "translateY(-6px)" }}
       className="card-blog"
@@ -61,7 +59,6 @@ export const CardBlog = ({
       <Flex
         flexDir={"column"}
         justify={"space-between"}
-        maxW={"324px"}
         // w={"full"}
         bg={"white"}
         // boxShadow={"2xl"}
@@ -72,11 +69,11 @@ export const CardBlog = ({
         <Box>
           <Box
             bg={"gray.100"}
-            // mt={-6}
-            // mx={-6}
-            // mb={6}
-            // pos={"relative"}
-            // aspectRatio={320 / 160}
+            mt={-6}
+            mx={-6}
+            mb={6}
+            pos={"relative"}
+            aspectRatio={320 / 160}
             overflow={"hidden"}
           >
             {hasSSL === "false" && (
@@ -89,8 +86,8 @@ export const CardBlog = ({
             {hasSSL === "true" && (
               <Box maxH={160}>
                 <Image
-                  width={324}
-                  height={160}
+                  width={500}
+                  height={400}
                   src={image || `/blog.jpeg`}
                   style={{ maxHeight: imageH }}
                   alt={title}
@@ -116,10 +113,9 @@ export const CardBlog = ({
               )}
             </Box> */}
             <Heading
-              className="event-heading"
               color={"gray.700"}
-              fontSize={{ base: "sm", lg: "lg" }}
-              fontFamily={"body"}
+              as={"h3"}
+              fontSize={{ base: "md", lg: "xl" }}
               fontWeight={"500"}
               mt={2}
               _hover={{ color: "red.400" }}

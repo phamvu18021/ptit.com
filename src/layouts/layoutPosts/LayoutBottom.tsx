@@ -48,9 +48,9 @@ export const LayoutBottom = ({
   sticky?: string;
 }) => {
   return (
-    <Container maxW={"6xl"}>
-      <SimpleGrid columns={{ base: 1, lg: 3 }} gap={"4px"} spacing={4}>
-        <GridItem colSpan={{ base: 1, lg: 2 }}>{children}</GridItem>
+    <Container maxW={"8xl"}>
+      <SimpleGrid columns={{ base: 1, lg: 4 }} spacing={"8"}>
+        <GridItem colSpan={{ base: 1, lg: 3 }}>{children}</GridItem>
         <GridItem className="sidebar-posts" colSpan={{ base: 1, lg: 1 }}>
           <Sidebar sticky={sticky} />
         </GridItem>

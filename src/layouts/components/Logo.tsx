@@ -7,7 +7,6 @@ export const Logo = () => {
     <Link
       href="/"
       style={{ display: "flex", alignItems: "center", gap: "4px" }}
-      
     >
       <Image
         priority
@@ -17,12 +16,11 @@ export const Logo = () => {
         src={`/logo-dhthainguyen.png`}
         alt="logo Đại học Thái nguyên"
       />
-      <VStack color={"#000000"}>
+      <VStack color={"red.600"}>
         <Box maxW={"25rem"}>
           <Heading
             as="h2"
-            size={"md"}
-            fontWeight={"600"}
+            size={"lg"}
             // justifyContent={"center"}
             // alignItems={"center"}
             textAlign={"center"}
