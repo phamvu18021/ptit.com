@@ -39,9 +39,7 @@ export const Share = ({ url }: { url?: string }) => {
         p={"16px"}
         variant={"outline"}
         w={"35px"}
-        _hover={{
-
-        }}
+        _hover={{}}
       />
 
       <Box pt={"24px"} className="fromsign" display={"none"}>

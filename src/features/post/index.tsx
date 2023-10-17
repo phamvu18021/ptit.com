@@ -13,9 +13,9 @@ export const Post = ({ post }: { post: any }) => {
 
   return (
     <article className={styles["post"]}>
-      <div className={styles["post--share"]}>
+      {/* <div className={styles["post--share"]}>
         <Share url={post?.slug || "#"} />
-      </div>
+      </div> */}
       <main>
         {post && (
           <>

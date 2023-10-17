@@ -29,41 +29,37 @@ interface INavItem {
 
 export const DesktopNav = () => {
   // const [active, setActive] = useState("hidden");
-  const linkColor = "#000000";
-  const linkHoverColor = "#FA692E";
-  const popoverContentBgColor = "white";
+  const linkColor = "facebook.800";
+  const linkHoverColor = "red.500";
+
+  const popoverContentBgColor = "linear-gradient(180deg, #fff 0, #f8f9fa 100%)";
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <>
       <Stack direction={"column"}>
         <Stack
           direction={"row"}
-          justifyContent={"flex-end"}
+          justifyContent={"end"}
           alignItems={"flex-end"}
-          // paddingRight={14}
+          pb={2}
+          gap={6}
         >
           <BtnTheme
-            color={"white"}
-            colorScheme="red"
+            color={"black"}
+            colorScheme="white"
+            size={{ base: "sm", md: "lg" }}
+            onClick={onToggle}
+          >
+            Đặt câu hỏi
+          </BtnTheme>
+          <BtnTheme
+            color={"black"}
+            colorScheme="white"
             size={{ base: "sm", md: "lg" }}
             onClick={onToggle}
           >
             Đăng ký tư vấn
           </BtnTheme>
-          <>
-            {/* <Popover
-            placement="bottom"
-          >
-            <PopoverTrigger>
-              <IconButton alignItems={"center"} 
-              border={"1px solid black"}
-              aria-label="Search database" icon={<SearchIcon />} />
-            </PopoverTrigger>
-            <PopoverContent p={5}>
-              <Form />
-            </PopoverContent>
-          </Popover> */}
-          </>
         </Stack>
 
         <Stack direction={"row"} spacing={8} alignItems={"center"}>
@@ -72,13 +68,11 @@ export const DesktopNav = () => {
               <Popover trigger={"hover"} placement={"bottom-start"}>
                 <PopoverTrigger>
                   <Box
-                    // onClickCapture={() => setActive("")}
-
                     as={Link}
-                    p={2}
+                    p={3}
                     href={navItem.path ?? "#"}
-                    fontSize={"0.9rem"}
-                    fontWeight={700}
+                    fontSize={{ base: "0.4rem", lg: "1rem" }}
+                    fontWeight={{ base: "400", lg: "700" }}
                     color={linkColor}
                     _hover={{
                       // textDecoration: "underline  1px solid black",
@@ -93,13 +87,14 @@ export const DesktopNav = () => {
                   <PopoverContent
                     border={0}
                     boxShadow={"xl"}
-                    bg={popoverContentBgColor}
-                    p={4}
-                    rounded={"xl"}
-                    minW={"sm"}
-                    maxW={300}
+                    bg={"linear-gradient(180deg, #fff 0%, #f8f9fa 100%)"}
+                    borderRadius={0}
+                    // p={4}
+                    minW={"2xs"}
+                    maxW={200}
+                    zIndex={99}
                   >
-                    <Stack>
+                    <Stack rowGap={0}>
                       {navItem.childs.map((child) => (
                         <DesktopSubNav key={child.title} {...child} />
                       ))}
@@ -109,7 +104,7 @@ export const DesktopNav = () => {
               </Popover>
             </Box>
           ))}
-
+          {/* 
           <Popover
             // isOpen={isOpen}
             // onOpen={onOpen}
@@ -122,7 +117,7 @@ export const DesktopNav = () => {
             <PopoverContent p={5}>
               <FormInputs />
             </PopoverContent>
-          </Popover>
+          </Popover> */}
         </Stack>
       </Stack>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
@@ -135,26 +130,27 @@ export const DesktopNav = () => {
 export const DesktopSubNav = ({ title, path }: INavItem) => {
   return (
     <Box
+      bg={"linear-gradient(180deg, #fff 0%, #f8f9fa 100%)"}
+      className="boxtoo"
       as={Link}
       href={path}
       role={"group"}
       display={"block"}
-      p={2}
-      rounded={"md"}
-      _hover={{ bg: "pink.50" }}
+      _hover={{ bg: "facebook.800", color: "white" }}
     >
-      <Stack direction={"row"} align={"center"}>
+      <Stack gap={0} direction={"row"} align={"center"} className="stacktit">
         <Box>
           <Text
+            p={4}
             transition={"all .3s ease"}
             color={"#054659"}
-            _groupHover={{ color: "#FA692E" }}
+            _groupHover={{ color: "white" }}
             fontWeight={600}
           >
             {title}
           </Text>
         </Box>
-        <Flex
+        {/* <Flex
           transition={"all .3s ease"}
           transform={"translateX(-10px)"}
           opacity={0}
@@ -164,7 +160,7 @@ export const DesktopSubNav = ({ title, path }: INavItem) => {
           flex={1}
         >
           <Icon color={"#FA692E"} w={5} h={5} as={BsChevronRight} />
-        </Flex>
+        </Flex> */}
       </Stack>
     </Box>
   );

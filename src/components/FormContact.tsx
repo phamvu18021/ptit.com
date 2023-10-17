@@ -354,7 +354,7 @@ export const FormMain = ({ title }: { title?: string }) => {
   );
 };
 
-export const FormMain2 = ({ title }: { title?: string }) => {
+export const FormMainPost = ({ title }: { title?: string }) => {
   useEffect(() => {
     comonForm({
       id: "getfly-optin-form-iframe-1695175881156",
@@ -387,7 +387,7 @@ export const FormPoup = ({ title }: { title?: string }) => {
   }, []);
 
   return (
-    <Box minH={"45vh"}>
+    <Box minH={"40vh"}>
       {title && (
         <Heading
           as={"h2"}
@@ -405,7 +405,7 @@ export const FormPoup = ({ title }: { title?: string }) => {
   );
 };
 
-export const FormPoup2 = ({ title }: { title?: string }) => {
+export const FormPoupCTA = ({ title }: { title?: string }) => {
   useEffect(() => {
     comonForm({
       id: "getfly-optin-form-iframe-1695175842605",
@@ -414,7 +414,7 @@ export const FormPoup2 = ({ title }: { title?: string }) => {
   }, []);
 
   return (
-    <Box minH={"45vh"}>
+    <Box minH={"35vh"}>
       {title && (
         <Heading
           as={"h2"}

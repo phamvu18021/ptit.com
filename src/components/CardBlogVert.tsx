@@ -53,13 +53,21 @@ export const CardBlogVert = ({
       href={path ?? "#"}
       border={"none"}
     >
-      <SimpleGrid columns={3}>
-        <GridItem colSpan={1}>
-          <Box objectFit={"cover"}>
+      <SimpleGrid columns={3} spacing={2}>
+        <GridItem
+          colSpan={1}
+          display={"flex"}
+          justifyContent={"center"}
+          objectFit={"cover"}
+        >
+          <Box
+            //  pt={{ lg: 2 }} pr={{ lg: 2 }}
+            pos={"relative"}
+          >
             {hasSSL === "true" && (
               <Image
-                width={110}
-                height={70}
+                width={130}
+                height={110}
                 src={image || `/blog.jpeg`}
                 alt={title}
               />
@@ -71,38 +79,37 @@ export const CardBlogVert = ({
           </Box>
         </GridItem>
         <GridItem colSpan={2}>
-          <Stack>
+          <Text
+            fontSize={"14px"}
+            fontWeight={500}
+            _hover={{ color: "red.500" }}
+            transition={"all ease .3s"}
+            css={{
+              display: "-webkit-box",
+              WebkitLineClamp: "2",
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+            dangerouslySetInnerHTML={{ __html: xss(title) }}
+          />
+          <HStack>
             <Text
-              fontSize={"14px"}
-              fontWeight={500}
-              _hover={{ color: "red.500" }}
-              transition={"all ease .3s"}
-              css={{
-                display: "-webkit-box",
-                WebkitLineClamp: "2",
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-              dangerouslySetInnerHTML={{ __html: xss(title) }}
-            />
-            <HStack pt={-2}>
-              <Text
-                p={1}
-                align={"center"}
-                fontSize={"10px"}
-                w={"-webkit-fit-content"}
-                height={5}
-                bg={"black"}
-                color={"white"}
-              >
-                {tag}
-              </Text>
-              <Text p={1} align={"center"} fontSize={"xs"} color={"gray.500"}>
-                {date?.slice(5)}
-              </Text>
-            </HStack>
-          </Stack>
+              p={1}
+              align={"center"}
+              fontSize={"10px"}
+              w={"-webkit-fit-content"}
+              // height={5}
+              bg={"black"}
+              color={"white"}
+              gap={0.1}
+            >
+              {tag}
+            </Text>
+            <Text p={1} align={"center"} fontSize={"xs"} color={"gray.500"}>
+              {date?.slice(5)}
+            </Text>
+          </HStack>
         </GridItem>
       </SimpleGrid>
 

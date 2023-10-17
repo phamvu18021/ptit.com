@@ -1,8 +1,9 @@
 "use client";
-
+import { SocialButton } from "./HeaderTop";
 import { useSize } from "@/hooks/useSizeWindow";
 import { menus } from "@/router";
 import {
+  HStack,
   Collapse,
   Divider,
   Drawer,
@@ -26,6 +27,8 @@ import { BsChevronDown, BsJustify } from "react-icons/bs";
 import { HeaderTop } from "./HeaderTop";
 import { Logo } from "./Logo";
 import { FormInputs } from "@/components/FormInputs";
+import { FaFacebook, FaTiktok } from "react-icons/fa";
+
 interface INavItem {
   title: string;
   childs?: Array<{ title: string; childs?: Array<{}>; path?: string }>;
@@ -46,7 +49,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
           textDecoration: "none",
         }}
         fontWeight={600}
-        color={"gray.600"}
+        color={"white"}
       >
         <Link
           href={path ?? "#"}
@@ -72,7 +75,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
           pl={4}
           borderLeft={1}
           borderStyle={"solid"}
-          borderColor={"gray.200"}
+          borderColor={"white"}
           align={"start"}
         >
           {childs &&
@@ -106,47 +109,66 @@ export const MobileNav = () => {
 
   return (
     <>
-      <IconButton
-        w={"50px"}
-        h={"50px"}
-        ref={btnRef}
-        onClick={onOpen}
-        icon={<Icon as={AiOutlineMenu} w={"24px"} h={"24px"} />}
-        variant={"ghost"}
-        aria-label={"Toggle Navigation"}
-      />
+      <div>
+        <IconButton
+          w={"50px"}
+          h={"50px"}
+          ref={btnRef}
+          onClick={onOpen}
+          icon={<Icon as={AiOutlineMenu} w={"24px"} h={"24px"} />}
+          variant={"ghost"}
+          aria-label={"Toggle Navigation"}
+        />
 
-      <Drawer
-        isOpen={width < 992 ? isOpen : false}
-        placement="left"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            <Flex>
-              <Logo />
-            </Flex>
-          </DrawerHeader>
-          <Divider />
+        <Drawer
+          isOpen={width < 992 ? isOpen : false}
+          placement="left"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+          size={"xs"}
+        >
+          <DrawerOverlay />
+          <DrawerContent maxH={"90vh"}>
+            <DrawerCloseButton />
+            <DrawerHeader>
+              <Flex>
+                <Logo />
+              </Flex>
+            </DrawerHeader>
+            <Divider />
 
-          <DrawerBody>
-            {/* <Input w={280} border={"1px solid #BFBFBF "} borderRadius={0} px={4} placeholder="Tim kiem..." /> */}
-            <FormInputs/>
-            <Stack bg={"white"} p={4} display={{ lg: "none" }}>
-              {menus.map((navItem) => (
-                <MobileNavItem
-                  key={navItem.title}
-                  {...navItem}
-                  onClose={onClose}
-                />
-              ))}
-            </Stack>
-          </DrawerBody>
-          <Divider />
-          <DrawerFooter
+            <DrawerBody bg={"facebook.800"} className="test">
+              {/* <Input w={280} border={"1px solid #BFBFBF "} borderRadius={0} px={4} placeholder="Tim kiem..." /> */}
+
+              <Stack className="test2" color={"white"} p={4} display={{ lg: "none" }}>
+                {menus.map((navItem) => (
+                  <MobileNavItem
+                    key={navItem.title}
+                    {...navItem}
+                    onClose={onClose}
+                  />
+                ))}
+              </Stack>
+              <FormInputs />
+              <HStack py={4} spacing={2} display={{ base: "flex", lg: "flex" }}>
+                <SocialButton
+                  bagr="transparent"
+                  label={"Facebook"}
+                  href={"https://www.facebook.com/TNUElearning"}
+                >
+                  <FaFacebook color="white" />
+                </SocialButton>
+                <SocialButton
+                  bagr="transparent"
+                  label={"Tiktok"}
+                  href={"https://www.tiktok.com/@tnuelearning?"}
+                >
+                  <FaTiktok color="white" />
+                </SocialButton>
+              </HStack>
+            </DrawerBody>
+            <Divider />
+            {/* <DrawerFooter
             pos={"relative"}
             _before={{
               content: "''",
@@ -165,9 +187,10 @@ export const MobileNav = () => {
             px={"12px"}
           >
             <HeaderTop />
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+          </DrawerFooter> */}
+          </DrawerContent>
+        </Drawer>
+      </div>
     </>
   );
 };

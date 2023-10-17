@@ -16,11 +16,12 @@ import {
   Text,
   HStack,
 } from "@chakra-ui/react";
+import { MdOutlineMail } from "react-icons/md";
 import { BiPhone } from "react-icons/bi";
 import { BsMessenger } from "react-icons/bs";
 import { MdEmail, MdRotate90DegreesCw, MdRotateRight } from "react-icons/md";
 import { SiZalo } from "react-icons/si";
-import { FormPoup2 } from "./FormContact";
+import { FormPoupCTA } from "./FormContact";
 import { transform } from "typescript";
 
 export const BtnPhone = (props: IconButtonProps) => {
@@ -31,10 +32,10 @@ export const BtnPhone = (props: IconButtonProps) => {
         size="lg"
         borderRadius={"50% 0 0 50%"}
         color={"white"}
-        bg={"red.500"}
+        bg={"red.600"}
         p={"8px"}
         as={"a"}
-        href={"tel: 0914709118"}
+        href={"tel: 0846770022"}
         {...props}
       />
     </Tooltip>
@@ -59,6 +60,23 @@ export const BtnZalo = (props: IconButtonProps) => {
   );
 };
 
+export const BtnMailN = (props: IconButtonProps) => {
+  return (
+    <Tooltip label={"Send email"} placement="left" bg={"blue.500"} hasArrow>
+      <IconButton
+        icon={<MdOutlineMail />}
+        size="lg"
+        borderRadius={"50% 0 0 50%"}
+        color={"white"}
+        bg={"blue.500"}
+        p={"8px"}
+        as={"a"}
+        href={"mailto: hotro.bcvt.edu.vn@gmail.com"}
+        {...props}
+      />
+    </Tooltip>
+  );
+};
 export const BtnMes = (props: IconButtonProps) => {
   return (
     <Tooltip
@@ -67,18 +85,17 @@ export const BtnMes = (props: IconButtonProps) => {
       placement="left"
       bg={"blue.500"}
       hasArrow
-
     >
       <IconButton
         icon={<BsMessenger />}
         size="lg"
         borderRadius={"50% 0 0 50%"}
         color={"white"}
-        bg={"blue.500"}
+        bg={"green.500"}
         p={"8px"}
         transition={"width ease .4s"}
         as={"a"}
-        href={"https://www.facebook.com/groups/800071498531146?locale=vi_VN"}
+        href={"https://www.facebook.com/bcvt.edu.vn"}
         {...props}
       />
     </Tooltip>
@@ -107,7 +124,7 @@ export const BtnEmail = (props: IconButtonProps) => {
             {...props}
           />
           <Text pr={2} color={"white"}>
-            Tu van ngay
+            Tư vấn ngay
           </Text>
         </HStack>
       </PopoverTrigger>
@@ -118,7 +135,7 @@ export const BtnEmail = (props: IconButtonProps) => {
           Để lại thông tin
         </PopoverHeader>
         <PopoverBody>
-          <FormPoup2 />
+          <FormPoupCTA />
         </PopoverBody>
       </PopoverContent>
     </Popover>

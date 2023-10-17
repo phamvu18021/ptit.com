@@ -116,7 +116,7 @@ export const Search = () => {
         // h={"60vh"}
         h={{ base: "10vh", md: "15vh", lg: "20vh" }}
       ></Box>
-      <Container maxW={"7xl"}>
+      <Container maxW={"8xl"}>
         <Box pt={"32px"}>
           <Suspense fallback={<Loading />}>
             <Box>

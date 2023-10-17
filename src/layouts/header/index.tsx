@@ -2,31 +2,34 @@
 
 import { BtnTheme } from "@/components/BtnTheme";
 import { FormPoup } from "@/components/FormContact";
-import { ModalBase } from "@/components/Modal";
-import {
-  Box,
-  Container,
-  Divider,
-  Flex,
-  useDisclosure,
-  HStack,
-} from "@chakra-ui/react";
+
 import { DesktopNav } from "../components/DeskhopNav";
 import { HeaderTop } from "../components/HeaderTop";
 import { MobileNav } from "../components/MobileNav";
 import { Logo } from "../components/Logo";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Heading,
+  VStack,
+  Box,
+  Container,
+  Divider,
+  Flex,
+  HStack,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { ModalBase } from "@/components/Modal";
 
 export const Header = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <>
-      <Box
-        pos={"relative"}
-        bg={"red"}
-        w={"100%"}
-        h={"20px"}
-        color={"red"}
-      ></Box>
+      <Box zIndex={11} pos={"relative"} bg={"red.600"} w={"100%"}>
+        <Container maxW="8xl">
+          <HeaderTop />
+        </Container>
+      </Box>
 
       <Divider />
       <Box
@@ -62,26 +65,43 @@ export const Header = () => {
           </Flex>
           <Flex
             flex={{ base: 1 }}
-            justify={{ base: "none", lg: "center" }}
+            justify={{ base: "none", lg: "end" }}
             align={"center"}
           >
             <Flex
               display={{ base: "none", lg: "flex" }}
-              ml={10}
+              ml={{ base: "0", lg: "10" }}
               align={"center"}
             >
               <DesktopNav />
             </Flex>
           </Flex>
-          <BtnTheme
-            colorScheme="red"
-            color={"white"}
+          <Flex display={{ base: "flex", lg: "none" }}>
+            <Link
+              href="/"
+              style={{ display: "flex", alignItems: "center", gap: "4px" }}
+            >
+              <Image
+                priority
+                width={50}
+                height={50}
+                // style={{ borderRadius: "50%" }}
+                src={`/logo-dhthainguyen.png`}
+                alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+        "
+              />
+            </Link>
+          </Flex>
+
+          {/* <BtnTheme
+            bg="white"
+            color={"blackAlpha.500"}
             size={"md"}
             onClick={onToggle}
             display={{ lg: "none", sm: "block" }}
           >
             Đăng ký tư vấn
-          </BtnTheme>
+          </BtnTheme> */}
         </Container>
       </Box>
 

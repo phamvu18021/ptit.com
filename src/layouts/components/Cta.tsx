@@ -1,17 +1,27 @@
-import { BtnMes, BtnPhone, BtnZalo, BtnEmail } from "@/components/BtnCTA";
+import {
+  BtnMes,
+  BtnPhone,
+  BtnZalo,
+  BtnEmail,
+  BtnMailN,
+} from "@/components/BtnCTA";
 import { Box, Flex, VStack } from "@chakra-ui/react";
 export const CTA = () => {
   return (
     <Box
       pos={"fixed"}
-      top={"50%"}
+      top={{ lg: "50%", base: "80%" }}
       right={"0"}
-      //   transform={"translateY(-50%)"}
+      // transform={"translateY(-50%)"}
       className="CTA"
       zIndex={5}
+      // transform={"rotate(90deg)"}
+      // translateY={"100%,0"}
+      // transformOrigin={"bottom right"}
+ 
     >
       <Flex
-      key={"e1"}
+        key={"e1"}
         height={"160px"}
         width={"200px"}
         alignItems={"center"}
@@ -24,8 +34,9 @@ export const CTA = () => {
       </Flex>
 
       <VStack gap={0} alignItems={"flex-end"}>
+        <BtnMailN aria-label="mailto : " />
         <BtnMes aria-label="messenter" />
-        <BtnZalo aria-label="zalo" />
+
         <BtnPhone aria-label="phone" />
       </VStack>
     </Box>

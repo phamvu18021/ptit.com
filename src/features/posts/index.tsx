@@ -58,21 +58,21 @@ export const Posts = () => {
         <Container maxW={"8xl"}>
           {/* <Breadcrumbs path={"Tin tức & sự kiện"} title={"Tin tức"} /> */}
           <Breadcrumb fontWeight="medium" fontSize="md" py={4}>
-            <BreadcrumbItem fontWeight={600}>
-              <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
+            <BreadcrumbItem fontWeight={700}>
+              <BreadcrumbLink color={"facebook.800"} href="/">Trang chủ</BreadcrumbLink>
             </BreadcrumbItem>
 
             <BreadcrumbItem px={4} fontWeight={600}>
-              <BreadcrumbLink href="/tin-tuc">Tin tức & sự kiện</BreadcrumbLink>
+              <BreadcrumbLink  href="/tin-tuc">Tin tức & sự kiện</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
           <Box py={8}>
-            <Text fontSize={{ lg: "4xl", sm: "xl" }} fontWeight={700} py={4}>
+            <Text fontSize={{ lg: "4xl", sm: "xl" }} color={"facebook.800"} fontWeight={700} py={4}>
               TIN TỨC VÀ SỰ KIỆN
             </Text>
             <hr
               style={{
-                background: "#6F38C5",
+                background: "#223B67",
                 height: "2px",
                 border: "none",
                 width: "3.5rem",

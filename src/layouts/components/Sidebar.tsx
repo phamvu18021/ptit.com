@@ -1,6 +1,6 @@
 "use client";
 
-import { FormMain, FormMain2 } from "@/components/FormContact";
+import { FormMain, FormMainPost } from "@/components/FormContact";
 import { categotys } from "@/features/home/Categorys";
 import { formatDate } from "@/ultil/date";
 import xss from "xss";
@@ -117,7 +117,7 @@ export const Sidebar = ({
   // )
 
   return (
-    <Box px={4} pos={sticky ? "sticky" : "static"} top={sticky}>
+    <Box px={2} pos={sticky ? "sticky" : "static"} top={sticky}>
       <Box>
         <form onSubmit={onSearch}>
           <HStack>
@@ -131,7 +131,7 @@ export const Sidebar = ({
               onChange={(e) => setSearchQuery(e.target.value)}
             />{" "}
             <Button borderRadius={0} onClick={onSearch}>
-              Tim Kiem
+              Tìm kiếm
             </Button>
           </HStack>
         </form>
@@ -196,7 +196,7 @@ export const Sidebar = ({
             >
               ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
             </Heading>
-            <FormMain2 />
+            <FormMainPost />
           </Box>
         </>
       )}
@@ -214,7 +214,7 @@ export const Sidebar = ({
               ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
             </Heading>
             <div key={"f1"}>
-              <FormMain2 />
+              <FormMainPost />
             </div>
           </Box>
           <Box justifyContent={"flex-start"}>
@@ -231,9 +231,13 @@ export const Sidebar = ({
               Thông báo PTIT{" "}
             </Text>
             <Box borderBottom={"1px solid #ED1C24 "}></Box>
-            <Box>
+            <Box className="ttcol">
               {!isLoading && (
-                <Stack direction={"column"} align={"center"}>
+                <Stack
+                  direction={"column"}
+                  align={{ base: "center", md: "flex-start" }}
+                  justifyContent={{ base: "center", md: "flex-start" }}
+                >
                   <>
                     <SimpleGrid
                       // pl={{ base: 2, lg: 24, md: 4 }}

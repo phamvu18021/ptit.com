@@ -14,13 +14,14 @@ export const Logo = () => {
         height={70}
         // style={{ borderRadius: "50%" }}
         src={`/logo-dhthainguyen.png`}
-        alt="logo Đại học Thái nguyên"
+        alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+        "
       />
       <VStack color={"red.600"}>
         <Box maxW={"25rem"}>
           <Heading
             as="h2"
-            size={"lg"}
+            size={{lg:"md" , sm:"sm"}}
             // justifyContent={"center"}
             // alignItems={"center"}
             textAlign={"center"}

@@ -73,7 +73,7 @@ export const Footer = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <>
-      <Box bg={"#054659"} color={"White"}>
+      <Box bg={"facebook.800"} color={"White"}>
         <Container as={Stack} maxW={"8xl"} py={10}>
           {/* <Flex justify="center" align={"center"} direction="column" mb="32px">
             <Heading size="md" textAlign="center" mb={4}>
@@ -115,7 +115,7 @@ export const Footer = () => {
                 href={"https://bcvt.edu.vn/"}
                 textDecor={"underline"}
               >
-                Website: https://bcvt.edu.vn/
+                Website: bcvt.edu.vn
               </Box>
 
               <Box
@@ -123,7 +123,7 @@ export const Footer = () => {
                 href={"https://www.facebook.com/bcvt.edu.vn"}
                 textDecor={"underline"}
               >
-                Fanpage: https://www.facebook.com/bcvt.edu.vn
+                Fanpage: www.facebook.com/bcvt.edu.vn
               </Box>
             </Stack>
             <Stack align={"flex-start"}>

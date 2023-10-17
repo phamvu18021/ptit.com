@@ -86,7 +86,7 @@ export const CardBlog = ({
             {hasSSL === "true" && (
               <Box maxH={160}>
                 <Image
-                  width={500}
+                  width={530}
                   height={400}
                   src={image || `/blog.jpeg`}
                   style={{ maxHeight: imageH }}
@@ -113,12 +113,12 @@ export const CardBlog = ({
               )}
             </Box> */}
             <Heading
-              color={"gray.700"}
+              color={"facebook.800"}
               as={"h3"}
               fontSize={{ base: "md", lg: "xl" }}
-              fontWeight={"500"}
+              fontWeight={"600"}
               mt={2}
-              _hover={{ color: "red.400" }}
+              _hover={{ color: "red.500" }}
               css={{
                 display: "-webkit-box",
                 WebkitLineClamp: "2",
@@ -128,7 +128,7 @@ export const CardBlog = ({
               }}
               dangerouslySetInnerHTML={{ __html: xss(title) }}
             />
-            <Text fontSize={"xs"} mt={-2} color={"gray.500"}>
+            <Text fontSize={"md"} mt={-2} color={"facebook.600"}>
               {date?.slice(5)}
             </Text>
             {/* {isMounted && (
@@ -202,7 +202,7 @@ export const CardBlogS = ({
     >
       <SimpleGrid
         columns={2}
-        maxW={"600px"}
+        // maxW={"600px"}
         spacing={4}
         // w={"full"}
         bg={"white"}
@@ -218,7 +218,7 @@ export const CardBlogS = ({
               />
             )}
             {hasSSL === "true" && (
-              <Box maxH={160}>
+              <Box>
                 <Image
                   width={504}
                   height={320}
@@ -234,7 +234,7 @@ export const CardBlogS = ({
           <Stack>
             <Heading
               className="event-heading"
-              color={"gray.700"}
+              color={"facebook.700"}
               fontSize={{ base: "sm", lg: "xl" }}
               fontFamily={"body"}
               fontWeight={"600"}
@@ -249,16 +249,16 @@ export const CardBlogS = ({
               }}
               dangerouslySetInnerHTML={{ __html: xss(title) }}
             />
-            <Text fontSize={"md"} mt={-2} color={"gray.600"}>
+            <Text fontSize={"md"} pb={1} color={"gray.400"}>
               {date?.slice(5)}
             </Text>
             {isMounted && (
               <Text
                 color={"gray.500"}
-                fontSize={".8rem"}
+                fontSize={".9rem"}
                 css={{
                   display: "-webkit-box",
-                  WebkitLineClamp: "2",
+                  WebkitLineClamp: "3",
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
@@ -268,7 +268,6 @@ export const CardBlogS = ({
             )}
           </Stack>
         </GridItem>
-        <Box></Box>
       </SimpleGrid>
     </Box>
   );

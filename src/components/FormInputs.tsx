@@ -16,10 +16,11 @@ export const FormInputs = () => {
     router.push(`/search?s=${encodedSearchQuery}`);
   };
   return (
-    <Box>
+    <Box zIndex={"100"}>
       <form onSubmit={onSearch}>
         <HStack>
           <Input
+            bg={"white"}
             value={searchQuery}
             type="Text"
             border={"1px solid #BFBFBF "}
@@ -28,9 +29,9 @@ export const FormInputs = () => {
             placeholder="Tim kiem..."
             onChange={(e) => setSearchQuery(e.target.value)}
           />{" "}
-          <Button borderRadius={0} onClick={onSearch}>
-            Tim Kiem
-          </Button>
+          {/* <Button borderRadius={0} onClick={onSearch}>
+            Tìm kiếm
+          </Button> */}
         </HStack>
       </form>
     </Box>

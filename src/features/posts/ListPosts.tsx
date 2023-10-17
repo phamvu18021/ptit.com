@@ -25,11 +25,11 @@ const StyledPaginate = styled(ReactPaginate)`
   flex-direction: row;
   flex-wrap: wrap;
   list-style-type: none;
-  padding: 0 5rem;
+  padding: 0 1rem;
 
   li a {
     border-radius: 7px;
-    padding: 0.1rem 1rem;
+    padding: 0.1rem 0.6rem;
     border: gray 1px solid;
     cursor: pointer;
     margin-right: 4px;
@@ -44,7 +44,7 @@ const StyledPaginate = styled(ReactPaginate)`
     background-color: #0366d6;
     border-color: transparent;
     color: white;
-    min-width: 32px;
+    min-width: 24px;
   }
   li.disabled a {
     color: grey;
@@ -133,7 +133,8 @@ export const ListPosts = ({
           nextLabel=">"
           pageCount={Math.round(len / 3)}
           onPageChange={handleRouter}
-          pageRangeDisplayed={0}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={1}
         />
       </HStack>
     </LayoutBottom>
