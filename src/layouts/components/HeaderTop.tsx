@@ -14,7 +14,8 @@ import { LuPhone } from "react-icons/lu";
 import { MdOutlineMail } from "react-icons/md";
 import { Search } from "./Search";
 import { Logo } from "./Logo";
-import { FaFacebook, FaTiktok } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
 import {
   Stack,
   VisuallyHidden,
@@ -70,7 +71,7 @@ export const Tags = ({
     <Tag
       borderRadius="full"
       variant="solid"
-      bg={"linear-gradient(70deg, #f68920 0%, #fc5934 100%)"}
+      bg={"transparent"}
       py="4px"
       px="4px"
       as={Link}
@@ -99,15 +100,15 @@ export const HeaderTop = () => {
         </SocialButton>
         <SocialButton
           bagr={"transparent"}
-          label={"Tiktok"}
-          href={"https://www.tiktok.com/@tnuelearning?"}
+          label={"Zalo"}
+          href={"https://zalo.me/0846770022"}
         >
-          <FaTiktok color="white" />
+          <SiZalo color="white" />
         </SocialButton>
       </HStack>
 
       <HStack
-        w={{ sm: "100vw", base: "-moz-fit-content" }}
+        w={{ base: "100vw", lg: "-moz-fit-content" }}
         // maxW={{base :'21vw'}}
         display="flex"
         justifyContent={{ base: "space-between", lg: "flex-end" }}
@@ -131,7 +132,7 @@ export const HeaderTop = () => {
               pl={4}
               bg="transparent"
               aria-label="Search database"
-              icon={<SearchIcon w="1.7em" h="1.7rem" />}
+              icon={<SearchIcon w="1em" h="1em" />}
               borderRadius={"0"}
             />
           </PopoverTrigger>

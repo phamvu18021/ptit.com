@@ -21,7 +21,7 @@ export const Logo = () => {
         <Box maxW={"25rem"}>
           <Heading
             as="h2"
-            size={{lg:"md" , sm:"sm"}}
+            size={{ lg: "md", base: "xs" }}
             // justifyContent={"center"}
             // alignItems={"center"}
             textAlign={"center"}
