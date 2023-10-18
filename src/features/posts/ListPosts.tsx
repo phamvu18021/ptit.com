@@ -96,7 +96,7 @@ export const ListPosts = ({
         <Heading
           size={"xl"}
           color={"red.600"}
-          pb={"48px"}
+          pb={"20px"}
           textAlign={{ base: "center", lg: "center" }}
         >
           Tin Tức

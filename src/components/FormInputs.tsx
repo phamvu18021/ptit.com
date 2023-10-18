@@ -13,7 +13,7 @@ export const FormInputs = () => {
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const encodedSearchQuery = encodeURI(searchQuery || "");
-    router.push(`/search?s=${encodedSearchQuery}`);
+    router.push(`/tim-kiem?s=${encodedSearchQuery}`);
   };
   return (
     <Box zIndex={"100"}>
@@ -26,7 +26,7 @@ export const FormInputs = () => {
             border={"1px solid #BFBFBF "}
             borderRadius={0}
             px={4}
-            placeholder="Tim kiem..."
+            placeholder="Tìm kiếm..."
             onChange={(e) => setSearchQuery(e.target.value)}
           />{" "}
           {/* <Button borderRadius={0} onClick={onSearch}>

@@ -85,7 +85,7 @@ export const Sidebar = ({
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const encodedSearchQuery = encodeURI(searchQuery || "");
-    router.push(`/search?s=${encodedSearchQuery}`);
+    router.push(`/tim-kiem?s=${encodedSearchQuery}`);
   };
 
   useEffect(() => {
@@ -120,17 +120,25 @@ export const Sidebar = ({
     <Box px={2} pos={sticky ? "sticky" : "static"} top={sticky}>
       <Box>
         <form onSubmit={onSearch}>
-          <HStack>
+          <HStack columnGap={"0"}>
             <Input
               value={searchQuery}
               type="Text"
               border={"1px solid #BFBFBF "}
               borderRadius={0}
               px={4}
-              placeholder="Tim kiem..."
+              placeholder="Tìm kiếm..."
               onChange={(e) => setSearchQuery(e.target.value)}
             />{" "}
-            <Button borderRadius={0} onClick={onSearch}>
+            <Button
+              borderRadius={0}
+              onClick={onSearch}
+              bg={"blue.800"}
+              color={"white"}
+              _hover={{
+                bg: "red.600",
+              }}
+            >
               Tìm kiếm
             </Button>
           </HStack>

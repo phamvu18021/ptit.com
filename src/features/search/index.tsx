@@ -112,7 +112,8 @@ export const Search = () => {
         bgImage={"url('/bannernews.png')"}
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
-        w={"100vw"}
+        maxW={"100vw"}
+        overflowX={"hidden"}
         // h={"60vh"}
         h={{ base: "10vh", md: "15vh", lg: "20vh" }}
       ></Box>
@@ -126,12 +127,12 @@ export const Search = () => {
                 pb={"12px"}
                 textAlign={{ base: "center", lg: "center" }}
               >
-                Search Term : {encodedSearchQuery2}
+                Kết quả trả về cho từ khóa : '{encodedSearchQuery2}''
               </Heading>
 
               <Box pb={8}>
                 <form onSubmit={onSearch}>
-                  <HStack justifyContent={"center"} pt={8}>
+                  <HStack justifyContent={"center"} py={8} columnGap={0}>
                     <Input
                       value={searchQuery}
                       type="Text"
@@ -140,17 +141,22 @@ export const Search = () => {
                       py={2}
                       maxW={820}
                       px={4}
-                      placeholder="Tim kiem..."
+                      placeholder="Tìm kiếm..."
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />{" "}
-                    <Button borderRadius={0} onClick={onSearch}>
-                      Tim Kiem
+                    <Button
+                      borderRadius={0}
+                      onClick={onSearch}
+                      bg={"blue.800"}
+                      color={"white"}
+                      _hover={{
+                        bg: "red.600",
+                      }}
+                    >
+                      Tìm kiếm
                     </Button>
                   </HStack>
                 </form>
-                <Text textAlign={"center"}>
-                  If you're not happy with the results, please search again.
-                </Text>
               </Box>
 
               {!isLoading && (

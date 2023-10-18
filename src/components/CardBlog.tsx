@@ -69,12 +69,12 @@ export const CardBlog = ({
         <Box>
           <Box
             bg={"gray.100"}
-            mt={-6}
-            mx={-6}
+            // mt={-6}
+            // mx={-6}
             mb={6}
             pos={"relative"}
-            aspectRatio={320 / 160}
-            overflow={"hidden"}
+            aspectRatio={508 / 338}
+            // overflow={"hidden"}
           >
             {hasSSL === "false" && (
               <Img
@@ -84,10 +84,10 @@ export const CardBlog = ({
               />
             )}
             {hasSSL === "true" && (
-              <Box maxH={160}>
+              <Box>
                 <Image
-                  width={530}
-                  height={400}
+                  width={508}
+                  height={338}
                   src={image || `/blog.jpeg`}
                   style={{ maxHeight: imageH }}
                   alt={title}
@@ -238,7 +238,6 @@ export const CardBlogS = ({
               fontSize={{ base: "sm", lg: "xl" }}
               fontFamily={"body"}
               fontWeight={"600"}
-              mt={2}
               _hover={{ color: "red.400" }}
               css={{
                 display: "-webkit-box",
@@ -258,7 +257,7 @@ export const CardBlogS = ({
                 fontSize={".9rem"}
                 css={{
                   display: "-webkit-box",
-                  WebkitLineClamp: "3",
+                  WebkitLineClamp: 2,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
                   textOverflow: "ellipsis",

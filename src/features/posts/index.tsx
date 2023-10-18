@@ -40,34 +40,27 @@ export const Posts = () => {
 
   return (
     <Box pb={"40px"}>
-      {/* <Box bg="radial-gradient(circle, rgba(5,70,89,1) 2%, rgba(98,212,245,1) 100%, rgba(252,89,52,1) 100%)">
-        <Container maxW={"6xl"} py="60px">
-          <Heading
-            as="h2"
-            textAlign={"center"}
-            size={"lg"}
-            pb="16px"
-            color={"white"}
-          >
-            Tin tức Đại học Thái Nguyên
-          </Heading>
-        </Container>
-      </Box> */}
-
       <Box bg={"#F8F9FA"}>
         <Container maxW={"8xl"}>
           {/* <Breadcrumbs path={"Tin tức & sự kiện"} title={"Tin tức"} /> */}
           <Breadcrumb fontWeight="medium" fontSize="md" py={4}>
             <BreadcrumbItem fontWeight={700}>
-              <BreadcrumbLink color={"facebook.800"} href="/">Trang chủ</BreadcrumbLink>
+              <BreadcrumbLink color={"facebook.800"} href="/">
+                Trang chủ
+              </BreadcrumbLink>
             </BreadcrumbItem>
 
             <BreadcrumbItem px={4} fontWeight={600}>
-              <BreadcrumbLink  href="/tin-tuc">Tin tức & sự kiện</BreadcrumbLink>
+              <BreadcrumbLink href="/tin-tuc">Tin tức & sự kiện</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Box py={8}>
-            <Text fontSize={{ lg: "4xl", sm: "xl" }} color={"facebook.800"} fontWeight={700} py={4}>
+          <Box py={2}>
+            <Text
+              fontSize={{ lg: "4xl", sm: "xl" }}
+              color={"facebook.800"}
+              fontWeight={700}
+              py={4}
+            >
               TIN TỨC VÀ SỰ KIỆN
             </Text>
             <hr
@@ -87,15 +80,18 @@ export const Posts = () => {
         bgSize={"contain"}
         maxW={"100vw"}
         // h={"60vh"}
-        h={{ base: "20vh", md: "35vh", lg: "60vh" }}
-      ></Box>
+        h={{ base: "15vh",lg:"58vh", md: "25vh", sm: "15vh" }}
+
+      >
+ 
+      </Box>
 
       {/* <Box mt={"32px"}>
         <Suspense fallback={<Loading />}>
           <SLiderPosts />
         </Suspense>
       </Box> */}
-      <Box pt={"32px"}>
+      <Box pt={"12px"}>
         <Suspense fallback={<Loading />}>
           <ListPosts handleRouter={handleRouter} />
         </Suspense>

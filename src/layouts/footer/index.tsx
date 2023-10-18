@@ -73,7 +73,7 @@ export const Footer = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <>
-      <Box bg={"facebook.800"} color={"White"}>
+      <Box bg={"blue.900"} color={"White"}>
         <Container as={Stack} maxW={"8xl"} py={10}>
           {/* <Flex justify="center" align={"center"} direction="column" mb="32px">
             <Heading size="md" textAlign="center" mb={4}>

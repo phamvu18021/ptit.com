@@ -19,6 +19,7 @@ import {
   Stack,
   useDisclosure,
   Input,
+  Box,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRef } from "react";
@@ -27,8 +28,8 @@ import { BsChevronDown, BsJustify } from "react-icons/bs";
 import { HeaderTop } from "./HeaderTop";
 import { Logo } from "./Logo";
 import { FormInputs } from "@/components/FormInputs";
-import { FaFacebook, FaTiktok } from "react-icons/fa";
-
+import { FaFacebook } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
 interface INavItem {
   title: string;
   childs?: Array<{ title: string; childs?: Array<{}>; path?: string }>;
@@ -128,19 +129,24 @@ export const MobileNav = () => {
           size={"xs"}
         >
           <DrawerOverlay />
-          <DrawerContent maxH={"90vh"}>
+          <DrawerContent maxH={"100vh"}>
             <DrawerCloseButton />
             <DrawerHeader>
-              <Flex>
+              <Flex onClick={onClose}>
                 <Logo />
               </Flex>
             </DrawerHeader>
             <Divider />
 
-            <DrawerBody bg={"facebook.800"} className="test">
+            <DrawerBody bg={"red.700"} className="test">
               {/* <Input w={280} border={"1px solid #BFBFBF "} borderRadius={0} px={4} placeholder="Tim kiem..." /> */}
 
-              <Stack className="test2" color={"white"} p={4} display={{ lg: "none" }}>
+              <Stack
+                className="test2"
+                color={"white"}
+                p={4}
+                display={{ lg: "none" }}
+              >
                 {menus.map((navItem) => (
                   <MobileNavItem
                     key={navItem.title}
@@ -149,7 +155,12 @@ export const MobileNav = () => {
                   />
                 ))}
               </Stack>
-              <FormInputs />
+             <Box onSubmit={onClose}>
+               <FormInputs  />
+             </Box>
+                
+            
+            
               <HStack py={4} spacing={2} display={{ base: "flex", lg: "flex" }}>
                 <SocialButton
                   bagr="transparent"
@@ -160,10 +171,10 @@ export const MobileNav = () => {
                 </SocialButton>
                 <SocialButton
                   bagr="transparent"
-                  label={"Tiktok"}
-                  href={"https://www.tiktok.com/@tnuelearning?"}
+                  label={"Zalo"}
+                  href={"https://zalo.me/0846770022"}
                 >
-                  <FaTiktok color="white" />
+                  <SiZalo color="white" />
                 </SocialButton>
               </HStack>
             </DrawerBody>
