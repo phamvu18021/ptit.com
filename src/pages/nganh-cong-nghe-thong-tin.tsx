@@ -15,8 +15,8 @@ const Page = () => {
   return (
     <>
       <NextSeo
-        title="Ngành công nghệ thông tin - Đại học Thái Nguyên"
-        description="Ngành công nghệ thông tin - Đại học Thái Nguyên, thông tin ngành công nghệ thông tin Đại học Thái nguyên"
+        title="Ngành công nghệ thông tin - Học viện Công nghệ Bưu chính Viễn thông"
+        description="Ngành công nghệ thông tin - Học viện Công nghệ Bưu chính Viễn thông, thông tin ngành công nghệ thông tin Học viện Công nghệ Bưu chính Viễn thông"
       />
       <Cntt />
     </>
