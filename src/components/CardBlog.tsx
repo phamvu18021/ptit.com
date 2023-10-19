@@ -74,7 +74,7 @@ export const CardBlog = ({
             mb={6}
             pos={"relative"}
             aspectRatio={508 / 338}
-            // overflow={"hidden"}
+            overflow={"hidden"}
           >
             {hasSSL === "false" && (
               <Img

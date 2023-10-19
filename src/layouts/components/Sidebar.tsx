@@ -92,7 +92,7 @@ export const Sidebar = ({
     const getPosts = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`/api/posts/?type=news&page=1`, {
+        const res = await fetch(`/api/posts/?type=notifis&page=1`, {
           next: { revalidate: 3 },
         });
 
