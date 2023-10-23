@@ -38,15 +38,16 @@ interface IPostPage {
 
 const Page = (props: IPostPage) => {
   const { post } = props;
+
   return (
     <>
       <NextSeo
         title={
-          post?.title?.rendered || "Đại học Thái Nguyên - tuyển sinh hệ từ xa"
+          post?.title?.rendered || "Học viện Công nghệ Bưu chính Viễn thông - tuyển sinh hệ từ xa"
         }
         description={
           post?.excerpt?.rendered ||
-          "Đại học Thái Nguyên - tuyển sinh hệ từ xa, học tập tiết kiệm thời gian và chi phí bằng cử nhân do Bộ Giáo dục cấp"
+          "Học viện Công nghệ Bưu chính Viễn thông - tuyển sinh hệ từ xa, học tập tiết kiệm thời gian và chi phí bằng cử nhân do Bộ Giáo dục cấp"
         }
       />
       <ErrorBoundary fallback={<h1>Lỗi phía máy chủ</h1>}>

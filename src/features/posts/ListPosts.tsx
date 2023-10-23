@@ -1,9 +1,18 @@
 "use client";
 
-import { CardBlogVert } from "@/components/CardBlogVert";
+import { CardBlog } from "@/components/CardBlog";
 import { Loading } from "@/components/Loading";
 import { LayoutBottom } from "@/layouts/layoutPosts/LayoutBottom";
-import { Box, Grid, HStack, Heading, VStack } from "@chakra-ui/react";
+import { formatDate } from "@/ultil/date";
+import {
+  Box,
+  Grid,
+  HStack,
+  Heading,
+  VStack,
+  SimpleGrid,
+  GridItem,
+} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,11 +25,11 @@ const StyledPaginate = styled(ReactPaginate)`
   flex-direction: row;
   flex-wrap: wrap;
   list-style-type: none;
-  padding: 0 5rem;
+  padding: 0 1rem;
 
   li a {
     border-radius: 7px;
-    padding: 0.1rem 1rem;
+    padding: 0.1rem 0.6rem;
     border: gray 1px solid;
     cursor: pointer;
     margin-right: 4px;
@@ -35,7 +44,7 @@ const StyledPaginate = styled(ReactPaginate)`
     background-color: #0366d6;
     border-color: transparent;
     color: white;
-    min-width: 32px;
+    min-width: 24px;
   }
   li.disabled a {
     color: grey;
@@ -85,30 +94,34 @@ export const ListPosts = ({
     <LayoutBottom sticky="120px">
       <Box>
         <Heading
-          size={"lg"}
+          size={"xl"}
+          color={"red.600"}
           pb={"20px"}
-          textAlign={{ base: "center", lg: "start" }}
+          textAlign={{ base: "center", lg: "center" }}
         >
-          Tin tức
+          Tin Tức
         </Heading>
+
         {!isLoading && (
-          <VStack spacing={"16px"}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} spacing={"8"}>
             {posts?.map((post: any, index: number) => (
-              <CardBlogVert
-                key={index}
-                title={post?.title?.rendered}
-                desc={xss(post.excerpt.rendered)}
-                tag="tin tức"
-                image={post?.featured_image || ""}
-                path={`/tin-tuc/${post?.slug}`}
-              />
+              <GridItem key={index}>
+                <CardBlog
+                  date={post?.date ? formatDate(post.date) : ""}
+                  title={post?.title?.rendered}
+                  desc={xss(post.excerpt.rendered)}
+                  tag="tin tức"
+                  image={post?.featured_image || ""}
+                  path={`/tin-tuc/${post?.slug}`}
+                />
+              </GridItem>
             ))}
             {posts?.length === 0 && (
               <Grid placeItems={"center"} height={"40vh"}>
                 Dữ liệu đang được chúng tôi cập nhập
               </Grid>
             )}
-          </VStack>
+          </SimpleGrid>
         )}
 
         {isLoading && <Loading />}
@@ -120,7 +133,8 @@ export const ListPosts = ({
           nextLabel=">"
           pageCount={Math.round(len / 3)}
           onPageChange={handleRouter}
-          pageRangeDisplayed={0}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={1}
         />
       </HStack>
     </LayoutBottom>

@@ -15,8 +15,8 @@ const Page = () => {
   return (
     <>
       <NextSeo
-        title="Liên hệ học từ xa Đại học Thái Nguyên"
-        description="Liên hệ học từ xa Đại học Thái Nguyên, tiết kiệm chi phí và thời gian"
+        title="Liên hệ học từ xa Học viện Công nghệ Bưu chính Viễn thông"
+        description="Liên hệ học từ xa Học viện Công nghệ Bưu chính Viễn thông, tiết kiệm chi phí và thời gian"
       />
       <Lienhe />
     </>

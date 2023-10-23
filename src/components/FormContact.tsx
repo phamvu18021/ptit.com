@@ -354,14 +354,13 @@ export const FormMain = ({ title }: { title?: string }) => {
   );
 };
 
-export const FormPoup = ({ title }: { title?: string }) => {
+export const FormMainPost = ({ title }: { title?: string }) => {
   useEffect(() => {
     comonForm({
-      id: "getfly-optin-form-iframe-1695175842604",
-      href: 'https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="',
+      id: "getfly-optin-form-iframe-1695175881156",
+      href: "https://aum.getflycrm.com/api/forms/viewform/?key=AxFWg9xmg9RGLjPsUiSwBCtbhyYTGWB3rBOtmMnxfQCEc9Draw&referrer=",
     });
   }, []);
-
   return (
     <Box minH={"45vh"}>
       {title && (
@@ -375,8 +374,60 @@ export const FormPoup = ({ title }: { title?: string }) => {
           Để lại thông tin
         </Heading>
       )}
+      <div id="getfly-optin-form-iframe-1695175881156"></div>
+    </Box>
+  );
+};
+export const FormPoup = ({ title }: { title?: string }) => {
+  useEffect(() => {
+    comonForm({
+      id: "getfly-optin-form-iframe-1695175842604",
+      href: 'https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="',
+    });
+  }, []);
+
+  return (
+    <Box minH={"40vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          pb={"16px"}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
 
       <div id="getfly-optin-form-iframe-1695175842604" />
+    </Box>
+  );
+};
+
+export const FormPoupCTA = ({ title }: { title?: string }) => {
+  useEffect(() => {
+    comonForm({
+      id: "getfly-optin-form-iframe-1695175842605",
+      href: 'https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="',
+    });
+  }, []);
+
+  return (
+    <Box minH={"35vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          pb={"16px"}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
+
+      <div id="getfly-optin-form-iframe-1695175842605" />
     </Box>
   );
 };

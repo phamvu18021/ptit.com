@@ -3,7 +3,7 @@
 import {
   Box,
   Button,
-  Card,
+  // Card,
   CardBody,
   CardFooter,
   HStack,
@@ -12,6 +12,8 @@ import {
   Stack,
   Tag,
   Text,
+  SimpleGrid,
+  GridItem,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,10 +23,12 @@ import xss from "xss";
 export const CardBlogVert = ({
   title,
   desc,
+  date,
   tag,
   image,
   path,
 }: {
+  date?: string;
   title: string;
   desc: string;
   tag: string;
@@ -40,68 +44,82 @@ export const CardBlogVert = ({
   }, []);
 
   return (
-    <Card
-      direction={{ base: "column", sm: "row" }}
-      overflow="hidden"
-      variant="outline"
-      rounded={"sm"}
+    <Box
+      py={4}
+      // overflow="hidden"
+      // variant="outline"
+      // rounded={"sm"}
       as={Link}
       href={path ?? "#"}
+      border={"none"}
     >
-      <Box flex={1}>
-        <Box m={"12px 24px"} rounded={"sm"} overflow={"hidden"}>
-          {hasSSL === "true" && (
-            <Image
-              width={320}
-              height={200}
-              src={image || `/blog.jpeg`}
-              alt={title}
-            />
-          )}
+      <SimpleGrid columns={3} spacing={2}>
+        <GridItem
+          colSpan={1}
+          display={"flex"}
+          justifyContent={"center"}
+          objectFit={"cover"}
+        >
+          <Box
+            //  pt={{ lg: 2 }} pr={{ lg: 2 }}
+            pos={"relative"}
+          >
+            {hasSSL === "true" && (
+              <Image
+                width={130}
+                height={110}
+                src={image || `/blog.jpeg`}
+                alt={title}
+              />
+            )}
 
-          {hasSSL === "false" && (
-            <Img src={image || `/blog.jpeg`} alt={title} />
-          )}
-        </Box>
-      </Box>
-
-      <Stack flex={1}>
-        <CardBody pb={0}>
+            {hasSSL === "false" && (
+              <Img src={image || `/blog.jpeg`} alt={title} />
+            )}
+          </Box>
+        </GridItem>
+        <GridItem colSpan={2}>
+          <Text
+            fontSize={"14px"}
+            fontWeight={500}
+            _hover={{ color: "red.500" }}
+            transition={"all ease .3s"}
+            css={{
+              display: "-webkit-box",
+              WebkitLineClamp: "2",
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+            dangerouslySetInnerHTML={{ __html: xss(title) }}
+          />
           <HStack>
-            <Tag
-              size={"xl"}
-              variant="solid"
-              colorScheme="red"
-              fontSize={"sm"}
-              p="6px"
-              whiteSpace={"nowrap"}
+            <Text
+              p={1}
+              align={"center"}
+              fontSize={"10px"}
+              w={"-webkit-fit-content"}
+              // height={5}
+              bg={"black"}
+              color={"white"}
+              gap={0.1}
             >
               {tag}
-            </Tag>
-            <Heading
-              as={"h4"}
-              size="sm"
-              _hover={{ color: "red.500" }}
-              transition={"all ease .3s"}
-              dangerouslySetInnerHTML={{ __html: xss(title) }}
-            />
+            </Text>
+            <Text p={1} align={"center"} fontSize={"xs"} color={"gray.500"}>
+              {date?.slice(5)}
+            </Text>
           </HStack>
+        </GridItem>
+      </SimpleGrid>
 
-          {isMounted && (
+      {/* {isMounted && (
             <Text
               color={"gray.500"}
               fontSize={".8rem"}
               dangerouslySetInnerHTML={{ __html: desc }}
             />
-          )}
-        </CardBody>
-
-        <CardFooter pt={0}>
-          <Button variant="link" colorScheme="red">
-            Xem thêm
-          </Button>
-        </CardFooter>
-      </Stack>
-    </Card>
+          )} */}
+    </Box>
   );
 };

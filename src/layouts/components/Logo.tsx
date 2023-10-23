@@ -1,4 +1,4 @@
-import { Heading, VStack } from "@chakra-ui/react";
+import { Heading, VStack, Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,23 +6,29 @@ export const Logo = () => {
   return (
     <Link
       href="/"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
+      style={{ display: "flex", alignItems: "center", gap: "4px" }}
     >
       <Image
         priority
-        width={65}
-        height={65}
-        style={{ borderRadius: "50%" }}
+        width={70}
+        height={70}
+        // style={{ borderRadius: "50%" }}
         src={`/logo-dhthainguyen.png`}
-        alt="logo Đại học Thái nguyên"
+        alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+        "
       />
-      <VStack color={"#028dbf"} align={"start"}>
-        <Heading as="h1" size={{ base: "sm", lg: "md" }}>
-          Đại học Thái Nguyên
-        </Heading>
-        <Heading as="h2" fontSize={{ base: ".8rem" }}>
-          Trung tâm đào tạo từ xa
-        </Heading>
+      <VStack color={"red.600"}>
+        <Box maxW={"25rem"}>
+          <Heading
+            as="h2"
+            size={{ lg: "md", base: "xs" }}
+            // justifyContent={"center"}
+            // alignItems={"center"}
+            textAlign={"center"}
+          >
+            HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
+          </Heading>
+        </Box>
       </VStack>
     </Link>
   );

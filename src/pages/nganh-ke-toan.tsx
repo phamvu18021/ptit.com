@@ -12,8 +12,8 @@ const Page = () => {
   return (
     <>
       <NextSeo
-        title="Ngành kế toán - Đại học Thái Nguyên"
-        description="Ngành kế toán - Đại học Thái Nguyên, thông tin ngành kế toán Đại học Thái nguyên"
+        title="Ngành kế toán - Học viện Công nghệ Bưu chính Viễn thông"
+        description="Ngành kế toán - Học viện Công nghệ Bưu chính Viễn thông, thông tin ngành kế toán Đại học Thái nguyên"
       />
       <Kt />
     </>

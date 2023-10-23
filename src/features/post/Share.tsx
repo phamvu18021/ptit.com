@@ -1,5 +1,6 @@
 "use client";
-
+import { FormMain } from "@/components/FormContact";
+import { Box, Heading } from "@chakra-ui/react";
 import { Icon, IconButton, Stack } from "@chakra-ui/react";
 import Link from "next/link";
 import { BsLink45Deg } from "react-icons/bs";
@@ -38,7 +39,20 @@ export const Share = ({ url }: { url?: string }) => {
         p={"16px"}
         variant={"outline"}
         w={"35px"}
+        _hover={{}}
       />
+
+      <Box pt={"24px"} className="fromsign" display={"none"}>
+        <Heading
+          as={"h3"}
+          size={"sm"}
+          pb={"20px"}
+          textAlign={{ base: "center", lg: "center" }}
+        >
+          ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
+        </Heading>
+        <FormMain />
+      </Box>
       <IconButton
         icon={<Icon as={FiMail} w={"18px"} h={"18px"} />}
         as={Link}

@@ -32,7 +32,7 @@
 }
 .post__main a {
   color: blueviolet;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 .post__main img {
   display: block;

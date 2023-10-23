@@ -22,8 +22,8 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return (
     <>
       <DefaultSeo
-        title="Đại học Thái Nguyên hệ đào tạo từ xa"
-        description="Đại học Thái Nguyên hệ đào tạo từ xa tuyển sinh 2023"
+        title="Học viện Công nghệ Bưu chính Viễn thông hệ đào tạo từ xa"
+        description="Học viện Công nghệ Bưu chính Viễn thông hệ đào tạo từ xa tuyển sinh 2023"
       />
       <ChakraProvider theme={theme}>
         <Layout>{getLayout(<Component {...pageProps} />)}</Layout>

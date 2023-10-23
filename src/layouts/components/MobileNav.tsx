@@ -1,8 +1,9 @@
 "use client";
-
+import { SocialButton } from "./HeaderTop";
 import { useSize } from "@/hooks/useSizeWindow";
 import { menus } from "@/router";
 import {
+  HStack,
   Collapse,
   Divider,
   Drawer,
@@ -17,14 +18,18 @@ import {
   IconButton,
   Stack,
   useDisclosure,
+  Input,
+  Box,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRef } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsChevronDown } from "react-icons/bs";
+import { BsChevronDown, BsJustify } from "react-icons/bs";
 import { HeaderTop } from "./HeaderTop";
 import { Logo } from "./Logo";
-
+import { FormInputs } from "@/components/FormInputs";
+import { FaFacebook } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
 interface INavItem {
   title: string;
   childs?: Array<{ title: string; childs?: Array<{}>; path?: string }>;
@@ -45,7 +50,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
           textDecoration: "none",
         }}
         fontWeight={600}
-        color={"gray.600"}
+        color={"white"}
       >
         <Link
           href={path ?? "#"}
@@ -71,7 +76,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
           pl={4}
           borderLeft={1}
           borderStyle={"solid"}
-          borderColor={"gray.200"}
+          borderColor={"white"}
           align={"start"}
         >
           {childs &&
@@ -81,7 +86,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
                 style={{
                   paddingTop: "8px",
                   paddingBottom: "8px",
-                  fontWeight: "600",
+                  fontWeight: "500",
                   width: "100%",
                 }}
                 href={child.path ?? "/"}
@@ -105,44 +110,76 @@ export const MobileNav = () => {
 
   return (
     <>
-      <IconButton
-        w={"50px"}
-        h={"50px"}
-        ref={btnRef}
-        onClick={onOpen}
-        icon={<Icon as={AiOutlineMenu} w={"24px"} h={"24px"} />}
-        variant={"ghost"}
-        aria-label={"Toggle Navigation"}
-      />
-      <Drawer
-        isOpen={width < 992 ? isOpen : false}
-        placement="left"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            <Flex justify={"center"}>
-              <Logo />
-            </Flex>
-          </DrawerHeader>
-          <Divider />
+      <div>
+        <IconButton
+          w={"50px"}
+          h={"50px"}
+          ref={btnRef}
+          onClick={onOpen}
+          icon={<Icon as={AiOutlineMenu} w={"24px"} h={"24px"} />}
+          variant={"ghost"}
+          aria-label={"Toggle Navigation"}
+        />
 
-          <DrawerBody>
-            <Stack bg={"white"} p={4} display={{ lg: "none" }}>
-              {menus.map((navItem) => (
-                <MobileNavItem
-                  key={navItem.title}
-                  {...navItem}
-                  onClose={onClose}
-                />
-              ))}
-            </Stack>
-          </DrawerBody>
-          <Divider />
-          <DrawerFooter
+        <Drawer
+          isOpen={width < 992 ? isOpen : false}
+          placement="left"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+          size={"xs"}
+        >
+          <DrawerOverlay />
+          <DrawerContent maxH={"100vh"}>
+            <DrawerCloseButton />
+            <DrawerHeader>
+              <Flex onClick={onClose}>
+                <Logo />
+              </Flex>
+            </DrawerHeader>
+            <Divider />
+
+            <DrawerBody bg={"red.700"} className="test">
+              {/* <Input w={280} border={"1px solid #BFBFBF "} borderRadius={0} px={4} placeholder="Tim kiem..." /> */}
+
+              <Stack
+                className="test2"
+                color={"white"}
+                p={4}
+                display={{ lg: "none" }}
+              >
+                {menus.map((navItem) => (
+                  <MobileNavItem
+                    key={navItem.title}
+                    {...navItem}
+                    onClose={onClose}
+                  />
+                ))}
+              </Stack>
+             <Box onSubmit={onClose}>
+               <FormInputs  />
+             </Box>
+                
+            
+            
+              <HStack py={4} spacing={2} display={{ base: "flex", lg: "flex" }}>
+                <SocialButton
+                  bagr="transparent"
+                  label={"Facebook"}
+                  href={"https://www.facebook.com/TNUElearning"}
+                >
+                  <FaFacebook color="white" />
+                </SocialButton>
+                <SocialButton
+                  bagr="transparent"
+                  label={"Zalo"}
+                  href={"https://zalo.me/0846770022"}
+                >
+                  <SiZalo color="white" />
+                </SocialButton>
+              </HStack>
+            </DrawerBody>
+            <Divider />
+            {/* <DrawerFooter
             pos={"relative"}
             _before={{
               content: "''",
@@ -161,9 +198,10 @@ export const MobileNav = () => {
             px={"12px"}
           >
             <HeaderTop />
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+          </DrawerFooter> */}
+          </DrawerContent>
+        </Drawer>
+      </div>
     </>
   );
 };
