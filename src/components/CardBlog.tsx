@@ -68,7 +68,7 @@ export const CardBlog = ({
       >
         <Box>
           <Box
-            bg={"gray.100"}
+            // bg={"gray.100"}
             // mt={-6}
             // mx={-6}
             mb={6}
@@ -209,7 +209,7 @@ export const CardBlogS = ({
         // boxShadow={"2xl"}
       >
         <GridItem colSpan={1}>
-          <Box bg={"gray.100"} overflow={"hidden"}>
+          <Box overflow={"hidden"}>
             {hasSSL === "false" && (
               <Img
                 src={image || `/blog.jpeg`}
