@@ -29,11 +29,11 @@ const StyledPaginate = styled(ReactPaginate)`
 
   li a {
     border-radius: 7px;
-    padding: 0.1rem 0.6rem;
+    padding: 0.1rem 0.5rem;
     border: gray 1px solid;
     cursor: pointer;
-    margin-right: 4px;
-    margin-left: 4px;
+    margin-right: 3px;
+    margin-left: 3px;
   }
   li.previous a,
   li.next a,
@@ -133,7 +133,7 @@ export const ListPosts = ({
           nextLabel=">"
           pageCount={Math.round(len / 3)}
           onPageChange={handleRouter}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={1}
           marginPagesDisplayed={1}
         />
       </HStack>

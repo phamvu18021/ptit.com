@@ -33,15 +33,15 @@ const StyledPaginate = styled(ReactPaginate)`
   flex-direction: row;
   flex-wrap: wrap;
   list-style-type: none;
-  padding: 0 5rem;
+  padding: 0 1rem;
 
   li a {
     border-radius: 7px;
-    padding: 0.1rem 1rem;
+    padding: 0.1rem 0.5rem;
     border: gray 1px solid;
     cursor: pointer;
-    margin-right: 4px;
-    margin-left: 4px;
+    margin-right: 3px;
+    margin-left: 3px;
   }
   li.previous a,
   li.next a,
@@ -52,7 +52,7 @@ const StyledPaginate = styled(ReactPaginate)`
     background-color: #0366d6;
     border-color: transparent;
     color: white;
-    min-width: 32px;
+    min-width: 24px;
   }
   li.disabled a {
     color: grey;
@@ -194,7 +194,8 @@ export const Search = () => {
                 nextLabel=">"
                 pageCount={Math.round(len / 3)}
                 onPageChange={changePage}
-                pageRangeDisplayed={0}
+                pageRangeDisplayed={1}
+                marginPagesDisplayed={1}
               />
             </HStack>
           </Suspense>

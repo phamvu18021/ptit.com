@@ -34,6 +34,7 @@ export const Post = ({ post }: { post: any }) => {
                 }}
               />
             </div>
+
             <SamePosts catId={catId} id={post?.id} />
           </>
         )}
