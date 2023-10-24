@@ -65,8 +65,8 @@ export const DesktopNav = () => {
         <Stack direction={"row"} spacing={8} alignItems={"center"}>
           {menus.map((navItem) => (
             <Box key={navItem.title}>
-              <Popover trigger={"hover"} placement={"bottom-start"}>
-                <PopoverTrigger>
+              {/* <Popover trigger={"hover"} placement={"bottom-start"}>
+                <PopoverTrigger> */}
                   <Box
                     as={Link}
                     p={3}
@@ -81,9 +81,11 @@ export const DesktopNav = () => {
                   >
                     {navItem.title}
                   </Box>
-                </PopoverTrigger>
 
-                {navItem.childs && (
+                
+                {/* </PopoverTrigger> */}
+
+                {/* {navItem.childs && (
                   <PopoverContent
                     border={0}
                     boxShadow={"xl"}
@@ -101,9 +103,9 @@ export const DesktopNav = () => {
                     </Stack>
                   </PopoverContent>
                 )}
-              </Popover>
+              </Popover>*/}
             </Box>
-          ))}
+          ))} 
           {/* 
           <Popover
             // isOpen={isOpen}
@@ -127,41 +129,41 @@ export const DesktopNav = () => {
   );
 };
 
-export const DesktopSubNav = ({ title, path }: INavItem) => {
-  return (
-    <Box
-      bg={"linear-gradient(180deg, #fff 0%, #f8f9fa 100%)"}
-      className="boxtoo"
-      as={Link}
-      href={path}
-      role={"group"}
-      display={"block"}
-      _hover={{ bg: "facebook.800", color: "white" }}
-    >
-      <Stack gap={0} direction={"row"} align={"center"} className="stacktit">
-        <Box>
-          <Text
-            p={4}
-            transition={"all .3s ease"}
-            color={"#054659"}
-            _groupHover={{ color: "white" }}
-            fontWeight={600}
-          >
-            {title}
-          </Text>
-        </Box>
-        {/* <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}
-        >
-          <Icon color={"#FA692E"} w={5} h={5} as={BsChevronRight} />
-        </Flex> */}
-      </Stack>
-    </Box>
-  );
-};
+// export const DesktopSubNav = ({ title, path }: INavItem) => {
+//   return (
+//     <Box
+//       bg={"linear-gradient(180deg, #fff 0%, #f8f9fa 100%)"}
+//       className="boxtoo"
+//       as={Link}
+//       href={path}
+//       role={"group"}
+//       display={"block"}
+//       _hover={{ bg: "facebook.800", color: "white" }}
+//     >
+//       <Stack gap={0} direction={"row"} align={"center"} className="stacktit">
+//         <Box>
+//           <Text
+//             p={4}
+//             transition={"all .3s ease"}
+//             color={"#054659"}
+//             _groupHover={{ color: "white" }}
+//             fontWeight={600}
+//           >
+//             {title}
+//           </Text>
+//         </Box>
+//         {/* <Flex
+//           transition={"all .3s ease"}
+//           transform={"translateX(-10px)"}
+//           opacity={0}
+//           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+//           justify={"flex-end"}
+//           align={"center"}
+//           flex={1}
+//         >
+//           <Icon color={"#FA692E"} w={5} h={5} as={BsChevronRight} />
+//         </Flex> */}
+//       </Stack>
+//     </Box>
+//   );
+// };
