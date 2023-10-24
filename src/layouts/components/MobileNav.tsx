@@ -59,7 +59,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
         >
           {title}
         </Link>
-        {childs && (
+        {/* {childs && (
           <Icon
             as={BsChevronDown}
             transition={"all .25s ease-in-out"}
@@ -67,10 +67,10 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
             w={"20px"}
             h={"20px"}
           />
-        )}
+        )} */}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+      {/* <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
         <Stack
           mt={2}
           pl={4}
@@ -96,7 +96,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
               </Link>
             ))}
         </Stack>
-      </Collapse>
+      </Collapse> */}
     </Stack>
   );
 };
