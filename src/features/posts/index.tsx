@@ -78,7 +78,7 @@ export const Posts = () => {
         bgImage={"url('/bannernews.png')"}
         bgRepeat={"no-repeat"}
         bgSize={"contain"}
-        maxW={"100vw"}
+        w={"100vw"}
         // h={"60vh"}
         h={{ base: "15vh",lg:"58vh", md: "25vh", sm: "15vh" }}
 
