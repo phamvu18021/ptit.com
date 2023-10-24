@@ -80,7 +80,7 @@ export const Posts = () => {
         bgSize={"cover"}
       //    w={"100vw"}
         // h={"60vh"}
-        h={{ base: "15vh",lg:"58vh", md: "25vh", sm: "15vh" }}
+        h={{ base: "15vh",lg:"45vh", md: "25vh", sm: "15vh" }}
 
       >
  
