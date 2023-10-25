@@ -103,27 +103,23 @@ export const Footer = () => {
                   HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
                 </Text>
               </Stack>
-              <Box as={Link} href={"#"}>
-                Trụ sở chính:
-              </Box>
-              <UnorderedList>
-                <ListItem>122 Hoàng Quốc Việt, Q.Cầu Giấy, Hà Nội.</ListItem>
-              </UnorderedList>
 
+              <Box py={2}>Email: hotro.bcvt.edu.vn@gmail.com</Box>
               <Box
+                py={2}
+                fontSize={"14px"}
                 as={Link}
-                href={"https://bcvt.edu.vn/"}
-                textDecor={"underline"}
+                href={"https://www.facebook.com/groups/835191238124628"}
               >
-                Website: bcvt.edu.vn
+                Group:https://www.facebook.com/groups/835191238124628
               </Box>
 
               <Box
+                py={2}
                 as={Link}
-                href={"https://www.facebook.com/bcvt.edu.vn"}
-                textDecor={"underline"}
+                href={"https://www.facebook.com/bcvt.edu.vn/"}
               >
-                Fanpage: www.facebook.com/bcvt.edu.vn
+                Fanpage:https://www.facebook.com/bcvt.edu.vn/
               </Box>
             </Stack>
             <Stack align={"flex-start"}>
