@@ -19,10 +19,9 @@ import {
 import { MdOutlineMail } from "react-icons/md";
 import { BiPhone } from "react-icons/bi";
 import { BsMessenger } from "react-icons/bs";
-import { MdEmail, MdRotate90DegreesCw, MdRotateRight } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { SiZalo } from "react-icons/si";
 import { FormPoupCTA } from "./FormContact";
-import { transform } from "typescript";
 
 export const BtnPhone = (props: IconButtonProps) => {
   return (
