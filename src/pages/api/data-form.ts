@@ -1,11 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-
 type Data = {
   id: string;
   href: string;
 };
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
@@ -13,31 +11,38 @@ export default async function handler(
   //lấy dữ liệu form từ wordpress
   const type = req?.query?.type || "";
   const api_url = process.env.API_URL || "";
-  const hasSSL = process.env.NEXT_PUBLIC_HAS_SSL || "true";
-  if (hasSSL === "false") process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
   let id: string = "";
   let href: string = "";
-
   try {
     const responeWordpress = await fetch(`${api_url}/posts/?slug=${type}`, {
       next: { revalidate: 10 },
     });
     const data: any[] = await responeWordpress.json();
     const htmlString = data?.length > 0 ? data[0]?.content.rendered : ``;
-
-    const idRegex = /id="([^"]+)"/;
-    const idMatch = htmlString.match(idRegex);
-    id = idMatch ? idMatch[1] : "";
-
+    // Sử dụng biểu thức chính quy để trích xuất chuỗi id
+    const idIndex = htmlString.indexOf('id="');
+    if (idIndex !== -1) {
+      const idStart = idIndex + 'id="'.length;
+      const idEnd = htmlString.indexOf('"', idStart);
+      if (idEnd !== -1) {
+        id = htmlString.substring(idStart, idEnd);
+      }
+    }
     // Sử dụng biểu thức chính quy để trích xuất chuỗi href
-    const hrefRegex = /https:\/\/[^'"]+/;
-    const hrefMatch: string[] = htmlString.match(hrefRegex);
-    href = hrefMatch ? hrefMatch[0] : "";
+    const hrefIndex = htmlString.indexOf("https://");
+    if (hrefIndex !== -1) {
+      const hrefStart = hrefIndex;
+      const hrefEnd = htmlString.indexOf("&#8221", hrefStart);
+      if (hrefEnd !== -1) {
+        href = htmlString.substring(hrefStart, hrefEnd);
+      } else {
+        const hrefEnd = htmlString.indexOf('"', hrefStart);
+        if (hrefEnd !== -1) href = htmlString.substring(hrefStart, hrefEnd);
+      }
+    }
   } catch (error) {
     console.log(error);
   }
-
   if (req.method === "GET") {
     res.status(200).json({
       id,
