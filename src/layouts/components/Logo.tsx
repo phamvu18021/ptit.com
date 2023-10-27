@@ -6,7 +6,7 @@ export const Logo = () => {
   return (
     <Link
       href="/"
-      style={{ display: "flex", alignItems: "center", gap: "8px" }}
+      style={{ display: "flex", alignItems: "center", gap: "4px" }}
     >
       <Image
         priority
@@ -17,29 +17,16 @@ export const Logo = () => {
         alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
         "
       />
-      <VStack>
-        <Box maxW={"40rem"}>
+      <VStack color={"red.600"}>
+        <Box maxW={"25rem"}>
           <Heading
-            color={"red.600"}
             as="h2"
-            size={{ lg: "sm", base: "xs" }}
+            size={{ lg: "md", base: "xs" }}
             // justifyContent={"center"}
             // alignItems={"center"}
             textAlign={"center"}
           >
             HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-          </Heading>
-          <Heading
-          mt={1}
-            color={"black"}
-            as="h2"
-            display={{lg:'contents',base:'none'}}
-            size={{ lg: "xs", base: "xs" }}
-            // justifyContent={"center"}
-            // alignItems={"center"}
-            textAlign={"center"}
-          >
-            Posts and Telecommunications Institute of Technology
           </Heading>
         </Box>
       </VStack>
