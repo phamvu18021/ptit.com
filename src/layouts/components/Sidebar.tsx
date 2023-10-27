@@ -1,7 +1,7 @@
 "use client";
 
-import { FormMain, FormMainPost } from "@/components/FormContact";
-import { categotys } from "@/features/home/Categorys";
+import { FormMain } from "@/components/FormContact";
+
 import { formatDate } from "@/ultil/date";
 import xss from "xss";
 import {
@@ -204,7 +204,7 @@ export const Sidebar = ({
             >
               ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
             </Heading>
-            <FormMainPost />
+            <FormMain />
           </Box>
         </>
       )}
@@ -222,7 +222,7 @@ export const Sidebar = ({
               ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
             </Heading>
             <div key={"f1"}>
-              <FormMainPost />
+              <FormMain />
             </div>
           </Box>
           <Box justifyContent={"flex-start"}>
