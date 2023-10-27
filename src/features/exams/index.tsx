@@ -208,6 +208,7 @@ export const ExamsPlan = () => {
           </Box>
         </Container>
       </Box>
+      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
     </>
   );
 };

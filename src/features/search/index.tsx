@@ -1,5 +1,5 @@
 "use client";
-
+import { BtnMes, BtnPhone, BtnZalo, BtnEmail } from "@/components/BtnCTA";
 import { CardBlogS } from "@/components/CardBlog";
 import { Loading } from "@/components/Loading";
 import { formatDate } from "@/ultil/date";
@@ -9,12 +9,18 @@ import {
   Divider,
   Heading,
   VStack,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Text,
   SimpleGrid,
   HStack,
   Grid,
   Button,
   Input,
 } from "@chakra-ui/react";
+import { url } from "inspector";
+import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
@@ -155,7 +161,10 @@ export const Search = () => {
 
               {!isLoading && (
                 <VStack spacing={"0px"}>
-                  <SimpleGrid columns={{ base: 1, md: 2, lg: 2 }}>
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2, lg: 2 }}
+                    // spacing={"4"}
+                  >
                     {posts?.map((post: any, index: number) => (
                       <CardBlogS
                         date={post?.date ? formatDate(post.date) : ""}

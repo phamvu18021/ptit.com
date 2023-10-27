@@ -1,17 +1,29 @@
 "use client";
+import { BtnMes, BtnPhone, BtnZalo, BtnEmail } from "@/components/BtnCTA";
 import { Loading } from "@/components/Loading";
 import {
   Box,
   Container,
   Divider,
+  Heading,
+  VStack,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   Text,
+  SimpleGrid,
 } from "@chakra-ui/react";
+import { url } from "inspector";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
+
+// const SLiderPosts = dynamic(
+//   () => import("./SliderPosts").then((mod) => mod.SLiderPosts),
+//   {
+//     loading: () => <Loading />,
+//   }
+// );
 
 const ListPosts = dynamic(
   () => import("./ListPosts").then((mod) => mod.ListPosts),
@@ -30,6 +42,7 @@ export const Posts = () => {
     <Box pb={"40px"}>
       <Box bg={"#F8F9FA"}>
         <Container maxW={"8xl"}>
+          {/* <Breadcrumbs path={"Tin tức & sự kiện"} title={"Tin tức"} /> */}
           <Breadcrumb fontWeight="medium" fontSize="md" py={4}>
             <BreadcrumbItem fontWeight={700}>
               <BreadcrumbLink color={"facebook.800"} href="/">
@@ -65,8 +78,19 @@ export const Posts = () => {
         bgImage={"url('/bannernews.png')"}
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
-        h={{ base: "15vh", lg: "45vh", md: "25vh", sm: "15vh" }}
-      ></Box>
+      //    w={"100vw"}
+        // h={"60vh"}
+        h={{ base: "15vh",lg:"45vh", md: "25vh", sm: "15vh" }}
+
+      >
+ 
+      </Box>
+
+      {/* <Box mt={"32px"}>
+        <Suspense fallback={<Loading />}>
+          <SLiderPosts />
+        </Suspense>
+      </Box> */}
       <Box pt={"12px"}>
         <Suspense fallback={<Loading />}>
           <ListPosts handleRouter={handleRouter} />

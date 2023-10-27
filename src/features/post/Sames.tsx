@@ -43,7 +43,7 @@ export const SamePosts = ({ catId, id }: { catId?: string; id?: string }) => {
       <Box pt={"20px"}>
         <HStack justifyContent={"space-between"} pb={"16px"}>
           <Heading as={"h3"} size={"md"}>
-            Bài viết liên quan
+            Có thể bạn quan tâm
           </Heading>
           <Button
             as={Link}
@@ -65,7 +65,7 @@ export const SamePosts = ({ catId, id }: { catId?: string; id?: string }) => {
                     title={postCat?.title?.rendered}
                     desc=""
                     image={postCat?.featured_image || ""}
-                    path={`/tin-tuc/${postCat.slug}`}
+                    path={postCat.slug}
                   />
                 </GridItem>
               );
