@@ -18,6 +18,7 @@ import { Field, Form, Formik } from "formik";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BtnTheme } from "./BtnTheme";
+import { Loading } from "./Loading";
 
 interface IForm {
   title?: string;
@@ -329,15 +330,69 @@ const comonForm = ({ id, href }: { id: string; href: string }) => {
   if (!s?.hasChildNodes()) s?.appendChild(f);
 };
 
+export const FormPoup = ({
+  title,
+  id,
+  href,
+}: {
+  title?: string;
+  id?: string;
+  href?: string;
+}) => {
+  useEffect(() => {
+    id &&
+      href &&
+      comonForm({
+        id,
+        href,
+      });
+  }, [id, href]);
+  return (
+    <Box minH={"45vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          py={3}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
+      <div id={id} />
+    </Box>
+  );
+};
+
 export const FormMain = ({ title }: { title?: string }) => {
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-main`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href, isLoading]);
   useEffect(() => {
     comonForm({
-      id: "getfly-optin-form-iframe-1695175881155",
-      href: "https://aum.getflycrm.com/api/forms/viewform/?key=AxFWg9xmg9RGLjPsUiSwBCtbhyYTGWB3rBOtmMnxfQCEc9Draw&referrer=",
+      id,
+      href,
     });
-  }, []);
+  }, [isLoading, id, href]);
   return (
-    <Box minH={"45vh"}>
+    <>
       {title && (
         <Heading
           as={"h2"}
@@ -346,75 +401,43 @@ export const FormMain = ({ title }: { title?: string }) => {
           color={"blue.700"}
           pb={"16px"}
         >
-          Để lại thông tin
+          {title}
         </Heading>
       )}
-      <div id="getfly-optin-form-iframe-1695175881155"></div>
-    </Box>
-  );
-};
-
-export const FormMainPost = ({ title }: { title?: string }) => {
-  useEffect(() => {
-    comonForm({
-      id: "getfly-optin-form-iframe-1695175881156",
-      href: "https://aum.getflycrm.com/api/forms/viewform/?key=AxFWg9xmg9RGLjPsUiSwBCtbhyYTGWB3rBOtmMnxfQCEc9Draw&referrer=",
-    });
-  }, []);
-  return (
-    <Box minH={"45vh"}>
-      {title && (
-        <Heading
-          as={"h2"}
-          size={{ base: "md", md: "lg" }}
-          textAlign={"center"}
-          color={"blue.700"}
-          pb={"16px"}
-        >
-          Để lại thông tin
-        </Heading>
-      )}
-      <div id="getfly-optin-form-iframe-1695175881156"></div>
-    </Box>
-  );
-};
-export const FormPoup = ({ title }: { title?: string }) => {
-  useEffect(() => {
-    comonForm({
-      id: "getfly-optin-form-iframe-1695175842604",
-      href: 'https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="',
-    });
-  }, []);
-
-  return (
-    <Box minH={"40vh"}>
-      {title && (
-        <Heading
-          as={"h2"}
-          size={{ base: "md", md: "lg" }}
-          textAlign={"center"}
-          color={"blue.700"}
-          pb={"16px"}
-        >
-          Để lại thông tin
-        </Heading>
-      )}
-
-      <div id="getfly-optin-form-iframe-1695175842604" />
-    </Box>
+      {isLoading && <Loading he={"38vh"} />}
+      {!isLoading && <div id={id} />}
+    </>
   );
 };
 
 export const FormPoupCTA = ({ title }: { title?: string }) => {
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-main`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id + 1);
+        const href = data?.href || "";
+        href && setHref(href);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href, isLoading]);
   useEffect(() => {
     comonForm({
-      id: "getfly-optin-form-iframe-1695175842605",
-      href: 'https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="',
+      id,
+      href,
     });
-  }, []);
-
+  }, [isLoading, id, href]);
   return (
-    <Box minH={"35vh"}>
+    <>
       {title && (
         <Heading
           as={"h2"}
@@ -423,11 +446,11 @@ export const FormPoupCTA = ({ title }: { title?: string }) => {
           color={"blue.700"}
           pb={"16px"}
         >
-          Để lại thông tin
+          {title}
         </Heading>
       )}
-
-      <div id="getfly-optin-form-iframe-1695175842605" />
-    </Box>
+      {isLoading && <Loading he={"38vh"} />}
+      {!isLoading && <div id={id} />}
+    </>
   );
 };
