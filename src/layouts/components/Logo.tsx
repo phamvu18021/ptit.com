@@ -12,10 +12,8 @@ export const Logo = () => {
         priority
         width={70}
         height={70}
-        // style={{ borderRadius: "50%" }}
         src={`/logo-dhthainguyen.png`}
-        alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-        "
+        alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG"
       />
       <VStack>
         <Box maxW={"40rem"}>
@@ -23,20 +21,16 @@ export const Logo = () => {
             color={"red.600"}
             as="h2"
             size={{ lg: "sm", base: "xs" }}
-            // justifyContent={"center"}
-            // alignItems={"center"}
             textAlign={"center"}
           >
             HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
           </Heading>
           <Heading
-          mt={1}
+            mt={1}
             color={"black"}
             as="h2"
-            display={{lg:'contents',base:'none'}}
+            display={{ lg: "contents", base: "none" }}
             size={{ lg: "xs", base: "xs" }}
-            // justifyContent={"center"}
-            // alignItems={"center"}
             textAlign={"center"}
           >
             Posts and Telecommunications Institute of Technology

@@ -59,44 +59,7 @@ export const MobileNavItem = ({ title, childs, path, onClose }: INavItem) => {
         >
           {title}
         </Link>
-        {/* {childs && (
-          <Icon
-            as={BsChevronDown}
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
-            w={"20px"}
-            h={"20px"}
-          />
-        )} */}
       </Flex>
-
-      {/* <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={"white"}
-          align={"start"}
-        >
-          {childs &&
-            childs.map((child) => (
-              <Link
-                key={child.title}
-                style={{
-                  paddingTop: "8px",
-                  paddingBottom: "8px",
-                  fontWeight: "500",
-                  width: "100%",
-                }}
-                href={child.path ?? "/"}
-                onClick={onClose}
-              >
-                {child.title}
-              </Link>
-            ))}
-        </Stack>
-      </Collapse> */}
     </Stack>
   );
 };
@@ -139,8 +102,6 @@ export const MobileNav = () => {
             <Divider />
 
             <DrawerBody bg={"red.700"} className="test">
-              {/* <Input w={280} border={"1px solid #BFBFBF "} borderRadius={0} px={4} placeholder="Tim kiem..." /> */}
-
               <Stack
                 className="test2"
                 color={"white"}
@@ -155,12 +116,10 @@ export const MobileNav = () => {
                   />
                 ))}
               </Stack>
-             <Box onSubmit={onClose}>
-               <FormInputs  />
-             </Box>
-                
-            
-            
+              <Box onSubmit={onClose}>
+                <FormInputs />
+              </Box>
+
               <HStack py={4} spacing={2} display={{ base: "flex", lg: "flex" }}>
                 <SocialButton
                   bagr="transparent"
@@ -179,26 +138,6 @@ export const MobileNav = () => {
               </HStack>
             </DrawerBody>
             <Divider />
-            {/* <DrawerFooter
-            pos={"relative"}
-            _before={{
-              content: "''",
-              width: "5e3px",
-              height: "100%",
-              backgroundImage:
-                "-webkit-gradient(linear,left top,left bottom,from(#004685),to(#004956e6));",
-              position: "absolute",
-              top: 0,
-              right: "36%",
-              zIndex: -1,
-              transform: "skew(-30deg)",
-              WebkitTransformOrigin: "left bottom",
-            }}
-            py="24px"
-            px={"12px"}
-          >
-            <HeaderTop />
-          </DrawerFooter> */}
           </DrawerContent>
         </Drawer>
       </div>

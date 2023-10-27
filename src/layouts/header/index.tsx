@@ -1,28 +1,35 @@
 "use client";
-
-import { BtnTheme } from "@/components/BtnTheme";
-import { FormPoup } from "@/components/FormContact";
-
-import { DesktopNav } from "../components/DeskhopNav";
-import { HeaderTop } from "../components/HeaderTop";
-import { MobileNav } from "../components/MobileNav";
-import { Logo } from "../components/Logo";
+import { Box, Container, Divider, Flex, HStack } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Heading,
-  VStack,
-  Box,
-  Container,
-  Divider,
-  Flex,
-  HStack,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { ModalBase } from "@/components/Modal";
+import { DesktopNav } from "../components/DeskhopNav";
+import { HeaderTop } from "../components/HeaderTop";
+import { Logo } from "../components/Logo";
+import { MobileNav } from "../components/MobileNav";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export const Header = () => {
-  const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
+  const rou = useRouter();
+
+  const [headt, setHeadt] = useState<"relative" | "sticky">("sticky");
+
+  useEffect(() => {
+    switch (rou.asPath) {
+      case "/nganh-cong-nghe-thong-tin":
+        setHeadt("relative");
+        break;
+      case "/nganh-ky-thuat-dien-tu-vien-thong":
+        setHeadt("relative");
+        break;
+      case "/nganh-quan-tri-kinh-doanh":
+        setHeadt("relative");
+        break;
+      default:
+        setHeadt("sticky");
+    }
+  }, [rou.asPath]);
+
   return (
     <>
       <Box zIndex={11} pos={"relative"} bg={"red.600"} w={"100%"}>
@@ -30,11 +37,10 @@ export const Header = () => {
           <HeaderTop />
         </Container>
       </Box>
-
       <Divider />
       <Box
         boxShadow="xs"
-        pos={"sticky"}
+        pos={headt}
         top={"0"}
         left={0}
         right={0}
@@ -85,29 +91,13 @@ export const Header = () => {
                 priority
                 width={50}
                 height={50}
-                // style={{ borderRadius: "50%" }}
                 src={`/logo-dhthainguyen.png`}
-                alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG
-        "
+                alt="logo HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG  "
               />
             </Link>
           </Flex>
-
-          {/* <BtnTheme
-            bg="white"
-            color={"blackAlpha.500"}
-            size={"md"}
-            onClick={onToggle}
-            display={{ lg: "none", sm: "block" }}
-          >
-            Đăng ký tư vấn
-          </BtnTheme> */}
         </Container>
       </Box>
-
-      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormPoup title="Để lại thông tin" />
-      </ModalBase>
     </>
   );
 };

@@ -13,7 +13,6 @@ import { ReactNode } from "react";
 import { LuPhone } from "react-icons/lu";
 import { MdOutlineMail } from "react-icons/md";
 import { Search } from "./Search";
-import { Logo } from "./Logo";
 import { FaFacebook } from "react-icons/fa";
 import { SiZalo } from "react-icons/si";
 import {
