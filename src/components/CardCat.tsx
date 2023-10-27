@@ -26,6 +26,7 @@ export const CardCat = ({
       as={Link}
       style={{ textDecoration: "none" }}
       href={path}
+      py={6}
       pos={"relative"}
       transition={"all ease .4s"}
       _hover={{ transform: "translateY(-4px)" }}
@@ -35,30 +36,30 @@ export const CardCat = ({
       <Flex
         flexDir={"column"}
         justify={"space-between"}
-        maxW={"527px"}
+        maxW={"445px"}
         w={"full"}
+        bg={"white"}
+        boxShadow={"2xl"}
         rounded={"sm"}
         p={6}
         overflow={"hidden"}
         h={"100%"}
       >
         <Box>
-          <Box bg={"gray.100"} mt={{lg:-6 }} mx={-6} mb={6} pos={"relative"} height={{lg:"auto",md:"auto", base:"auto"}} >
+          <Box bg={"gray.100"} mt={-6} mx={-6} mb={6} pos={"relative"}>
             <Image
-            priority
-              width={326}
-              height={450}
+              width={600}
+              height={350}
               src={image || `/blog.jpg`}
               alt={title}
-              style={{objectFit:"cover", width:"100%",height:"auto" , borderRadius:"21px"}}
-              
+              priority
             />
           </Box>
           <Stack>
             <Heading
               className="event-heading"
               color={"gray.700"}
-              fontSize={{ base: "sm", lg: "lg" }}
+              fontSize={{ base: "sm", lg: "md" }}
               fontFamily={"body"}
               _hover={{ color: "red.400" }}
               css={{
@@ -67,7 +68,6 @@ export const CardCat = ({
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                textAlign:"center",
               }}
             >
               {title}

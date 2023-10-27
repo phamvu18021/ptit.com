@@ -1,24 +1,30 @@
-import { Box, Divider, Heading, Text, VStack } from "@chakra-ui/react";
+import { Heading, Text, VStack } from "@chakra-ui/react";
 
-export const HeadSection = ({ subtitle }: { subtitle: string }) => {
+export const HeadSection = ({
+  subtitle,
+  title,
+  desc,
+}: {
+  subtitle: string;
+  title: string;
+  desc: string;
+}) => {
   return (
-    <Box>
+    <VStack justify={"center"}>
+      {/* <Text color={"#FA692E"}>{subtitle}</Text> */}
       <Heading
-        fontSize={{ base: "25px", md: "32px", lg: "2.25rem !important" }}
+        as={"h2"}
+        size={{ base: "sm", md: "lg" }}
+        textAlign={"center"}
         textTransform={"uppercase"}
-        color={"#B1040E"}
-        paddingTop={"30px"}
-        fontWeight={"bold"}
+        color={"blue.800"}
       >
-        {subtitle}
+        {title}
       </Heading>
-      <Divider
-        borderBottomWidth={"3px"}
-        borderBlockEndColor={"orange"}
-        w={"200px"}
-        padding={{ lg: "15px", base: "6px" }}
-      />
-    </Box>
+      <Text color={"gray.500"} fontWeight={"thin"}>
+        {desc}
+      </Text>
+    </VStack>
   );
 };
 
@@ -33,6 +39,7 @@ export const HeadSectionLight = ({
 }) => {
   return (
     <VStack justify={"center"}>
+      {/* <Text color={"#FA692E"}>{subtitle}</Text> */}
       <Heading
         as={"h2"}
         size={{ base: "sm", md: "lg" }}
