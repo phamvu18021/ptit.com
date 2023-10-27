@@ -10,10 +10,8 @@ const Layout = ({ children }: ILayout) => {
   return (
     <>
       <Header />
-
       <main>{children}</main>
       <CTA />
-
       <Footer />
     </>
   );

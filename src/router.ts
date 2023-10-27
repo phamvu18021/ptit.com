@@ -1,3 +1,11 @@
+export type TMenus = {
+  path: string;
+  title: string;
+  childs?: {
+    path: string;
+    title: string;
+  }[];
+}[];
 export const menus = [
   {
     path: "/", // the url
@@ -7,20 +15,6 @@ export const menus = [
   {
     path: "/nganh-hoc", // the url
     title: "NGÀNH HỌC",
-    // childs: [
-    //   {
-    //     path: "/nganh-cong-nghe-thong-tin",
-    //     title: "Công nghệ thông tin",
-    //   },
-    //   {
-    //     path: "/nganh-dien-tu-vien-thong",
-    //     title: "Điện tử viễn thông",
-    //   },
-    //   {
-    //     path: "/nganh-quan-tri-kinh-doanh",
-    //     title: "Quản trị kinh doanh",
-    //   },
-    // ],
   },
 
   {

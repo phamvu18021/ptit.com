@@ -127,8 +127,8 @@ export const ListPosts = ({
 
       <HStack pt={"32px"} justify={"center"}>
         <StyledPaginate
-          previousLabel=">"
-          nextLabel="<"
+          previousLabel="<"
+          nextLabel=">"
           pageCount={len / 3}
           onPageChange={handleRouter}
           pageRangeDisplayed={1}

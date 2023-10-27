@@ -3,16 +3,6 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { Search } from "@/features/search";
 import { NextSeo } from "next-seo";
 
-import { useSearchParams } from "next/navigation";
-
-// const Page = () => {
-//     const search = useSearchParams();
-//     const searchQuery =search ? search.get("q") : null;
-// const endcodedSearchQuery =encodeURI(searchQuery  || "");
-
-//   return <div>Search page</div>;
-// };
-
 const Page = () => {
   return (
     <>
