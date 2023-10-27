@@ -199,11 +199,7 @@ export const Notify = () => {
 
   return (
     <Container maxW={"6xl"}>
-      <HeadSection
-        title="Thông báo tuyển sinh"
-        subtitle="thông báo"
-        desc="Thông báo tuyển sinh hệ từ xa Đại học Thái Nguyên 2023"
-      />
+    
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={"32px"} pt={"24px"}>
         <GridItem>
           <Accs accs={info} />

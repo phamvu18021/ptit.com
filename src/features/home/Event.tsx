@@ -9,16 +9,25 @@ import {
   HStack,
   Heading,
   SimpleGrid,
+  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
 export const Event = ({ news, notifis }: { news: any[]; notifis: any[] }) => {
   return (
-    <Container maxW={"6xl"} py={"64px"}>
-      <HeadSection
-        title="Tin tức - Thông báo"
-        subtitle="tin tức"
-        desc="Đừng vội lướt qua những tin tức và thông báo cập nhật từ chúng tôi"
+    <Container maxW={"1728px"} py={"64px"}>
+      <Heading
+        fontSize={{ base: "25px", md: "32px", lg: "32px" }}
+        textTransform={"uppercase"}
+        color={"#B1040E"}
+      >
+        BẢN TIN TUYỂN SINH TRƯỜNG ĐẠI HỌC UMT
+      </Heading>
+      <Divider
+        borderBottomWidth={"3px"}
+        borderBlockEndColor={"orange"}
+        w={"200px"}
+        padding={{ lg: "15px", base: "6px" }}
       />
       <SimpleGrid columns={{ base: 1, md: 2 }} pt={"24px"} spacing={"8"}>
         <GridItem>
@@ -37,8 +46,6 @@ export const Event = ({ news, notifis }: { news: any[]; notifis: any[] }) => {
               <CardBlog
                 key={index}
                 image={post?.featured_image || ""}
-                tag="Tin tức"
-                bgTag="red.500"
                 title={post?.title?.rendered || ""}
                 desc={post?.excerpt?.rendered || ""}
                 path={`/tin-tuc/${post.slug}`}
@@ -63,8 +70,6 @@ export const Event = ({ news, notifis }: { news: any[]; notifis: any[] }) => {
                 <CardBlog
                   key={index}
                   image={post?.featured_image || ""}
-                  tag="Thông báo"
-                  bgTag="green.500"
                   title={post?.title?.rendered || ""}
                   desc={post?.excerpt?.rendered || ""}
                   path={`/tin-tuc/${post.slug}`}
