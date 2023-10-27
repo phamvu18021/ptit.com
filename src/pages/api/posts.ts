@@ -40,7 +40,12 @@ export default async function handler(
     const res = await fetch(endPoint, {
       next: { revalidate: 1 },
     });
-    totalPosts = res.headers?.get("X-WP-Total") || "0";
+    let ttp = Number(res.headers?.get("X-WP-Total") || "0");
+    if (ttp > 4) {
+      totalPosts = String(ttp - 4);
+    } else {
+      totalPosts = String(ttp);
+    }
 
     const postsNotFeatureImage: any[] = (await res?.json()) || [];
     posts =
