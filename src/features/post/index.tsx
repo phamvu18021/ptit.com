@@ -1,11 +1,11 @@
 "only server";
 
 import { formatDate } from "@/ultil/date";
+import { clean } from "@/lib/sanitizeHtml";
 import Link from "next/link";
-import xss from "xss";
 import { SamePosts } from "./Sames";
-import { Share } from "./Share";
 import styles from "@/styles/Post.module.css";
+import { Share } from "./Share";
 
 export const Post = ({ post }: { post: any }) => {
   const catIds = post?.categories || [];
@@ -13,9 +13,9 @@ export const Post = ({ post }: { post: any }) => {
 
   return (
     <article className={styles["post"]}>
-      {/* <div className={styles["post--share"]}>
+      <div className={styles["post--share"]}>
         <Share url={post?.slug || "#"} />
-      </div> */}
+      </div>
       <main>
         {post && (
           <>
@@ -23,18 +23,17 @@ export const Post = ({ post }: { post: any }) => {
               <div className={styles["post__heading"]}>
                 <h1
                   dangerouslySetInnerHTML={{
-                    __html: xss(post?.title?.rendered),
+                    __html: clean(post?.title?.rendered),
                   }}
                 />
                 <span>{formatDate(post?.date)}</span>
               </div>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: xss(post?.content?.rendered),
+                  __html: clean(post?.content?.rendered),
                 }}
               />
             </div>
-
             <SamePosts catId={catId} id={post?.id} />
           </>
         )}
