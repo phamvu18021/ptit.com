@@ -1,27 +1,32 @@
 "use client";
 
-import { CardBlogVert } from "@/components/CardBlogVert";
-import { FormMain, FormPoupCTA } from "@/components/FormContact";
-
-import { Loading } from "@/components/Loading";
+import { FormMain, FormMainPost } from "@/components/FormContact";
+import { categotys } from "@/features/home/Categorys";
 import { formatDate } from "@/ultil/date";
+import xss from "xss";
 import {
   Box,
   Button,
   Flex,
-  Grid,
-  HStack,
   Heading,
-  Input,
   SimpleGrid,
-  Stack,
   Text,
+  HStack,
+  Stack,
+  Grid,
+  Input,
+  VStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { BiLogoTiktok } from "react-icons/bi";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { FaFacebook, FaYoutube } from "react-icons/fa";
+import { SiZalo } from "react-icons/si";
+import { useCallback, useEffect, useState } from "react";
+import { Loading } from "@/components/Loading";
+import { CardBlogVert } from "@/components/CardBlogVert";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import xss from "xss";
 
 export const Item = ({
   path,
@@ -103,6 +108,14 @@ export const Sidebar = ({
     getPosts();
   }, []);
 
+  // const gotoSearch = useCallback(
+  //   () => {
+  //     if(keyword.trim().length >0){
+
+  //     },[keyword]
+  //   }
+  // )
+
   return (
     <Box px={2} pos={sticky ? "sticky" : "static"} top={sticky}>
       <Box>
@@ -116,7 +129,7 @@ export const Sidebar = ({
               px={4}
               placeholder="Tìm kiếm..."
               onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            />{" "}
             <Button
               borderRadius={0}
               onClick={onSearch}
@@ -134,6 +147,7 @@ export const Sidebar = ({
 
       {typez && (
         <>
+          {" "}
           <Box mt={2} justifyContent={"flex-start"}>
             <Text
               px={2}
@@ -144,14 +158,19 @@ export const Sidebar = ({
               color={"white"}
               textAlign={"start"}
             >
-              Thông báo PTIT
+              {" "}
+              Thông báo PTIT{" "}
             </Text>
             <Box borderBottom={"1px solid #ED1C24 "}></Box>
             <Box>
               {!isLoading && (
                 <Stack direction={"column"} align={"center"}>
                   <>
-                    <SimpleGrid columns={{ base: 1, md: 1, lg: 1 }}>
+                    <SimpleGrid
+                      // pl={{ base: 2, lg: 24, md: 4 }}
+                      // spacing={"4"}
+                      columns={{ base: 1, md: 1, lg: 1 }}
+                    >
                       {posts?.slice(0, 5).map((post: any, index: number) => (
                         <CardBlogVert
                           date={post?.date ? formatDate(post.date) : ""}
@@ -185,7 +204,7 @@ export const Sidebar = ({
             >
               ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
             </Heading>
-            <FormPoupCTA />
+            <FormMainPost />
           </Box>
         </>
       )}
@@ -202,7 +221,9 @@ export const Sidebar = ({
             >
               ĐĂNG KÝ NGAY ĐỂ NHẬN TƯ VẤN
             </Heading>
-            <FormPoupCTA />
+            <div key={"f1"}>
+              <FormMainPost />
+            </div>
           </Box>
           <Box justifyContent={"flex-start"}>
             <Text
@@ -214,7 +235,8 @@ export const Sidebar = ({
               color={"white"}
               textAlign={"start"}
             >
-              Thông báo PTIT
+              {" "}
+              Thông báo PTIT{" "}
             </Text>
             <Box borderBottom={"1px solid #ED1C24 "}></Box>
             <Box className="ttcol">
@@ -225,8 +247,14 @@ export const Sidebar = ({
                   justifyContent={{ base: "center", md: "flex-start" }}
                 >
                   <>
-                    <SimpleGrid columns={{ base: 1, md: 1, lg: 1 }}>
+                    <SimpleGrid
+                      // pl={{ base: 2, lg: 24, md: 4 }}
+                      // spacing={"4"}
+                      columns={{ base: 1, md: 1, lg: 1 }}
+                    >
                       {posts?.slice(0, 5).map((post: any, index: number) => (
+                        // <SwiperSlide key={index}>
+
                         <CardBlogVert
                           date={post?.date ? formatDate(post.date) : ""}
                           key={index}
@@ -236,7 +264,9 @@ export const Sidebar = ({
                           image={post?.featured_image || ""}
                           path={`/tin-tuc/${post?.slug}`}
                         />
-                      ))}
+
+                        // </SwiperSlide>
+                      ))}{" "}
                     </SimpleGrid>
                     {posts?.length === 0 && (
                       <Grid placeItems={"center"} height={"40vh"}>

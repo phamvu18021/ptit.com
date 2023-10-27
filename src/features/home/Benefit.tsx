@@ -102,9 +102,9 @@ export const Benefit = () => {
     >
       <Container maxW="6xl">
         <HeadSection
-          // title="Bạn nhận được gì"
+          title="Bạn nhận được gì"
           subtitle="lợi ích"
-          // desc="Những giá trị bạn sẽ nhận được từ chương trình của Đại học Thái Nguyên"
+          desc="Những giá trị bạn sẽ nhận được từ chương trình của Đại học Thái Nguyên"
         />
         <SimpleGrid pt={"24px"} spacing={"8"} columns={{ base: 1, md: 2 }}>
           {benefits.map((categoty, index) => (
