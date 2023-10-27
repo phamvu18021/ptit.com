@@ -1,155 +1,148 @@
-"use client";
+import { useModal } from "@/components/ModalContext";
+import { Box, Button, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
+import styled from "@emotion/styled";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import {
-  Box,
-  Center,
-  Container,
-  Flex,
-  Heading,
-  Icon,
-  Stack,
-  StackDivider,
-  Text,
-  VStack,
-  useColorModeValue,
-} from "@chakra-ui/react";
+export const CardBanner = ({
+  title,
+  image,
+  desc
+}: {
+  title: string;
+  desc: string;
+  image: string;
 
-import { ReactNode } from "react";
-import { BiHome } from "react-icons/bi";
-import { BsPiggyBank } from "react-icons/bs";
-import { PiCertificate } from "react-icons/pi";
-import { motion } from "framer-motion";
+}) => {
+  const { isOpen, onOpen, onClose } = useModal();
 
-interface FeatureProps {
-  text: string;
-  iconBg: string;
-  icon?: ReactNode;
+  return (
+    <Box>
+      <Image
+        className="Image"
+        src={image}
+        alt={title}
+        width={"100%"}
+        objectFit={"cover"}
+        height={{ lg: "auto", base: "800px" }}
+      />
+      <ImageOverlay />
+      <SimpleGrid flexDirection={"column"} pos={"absolute"} top={{ lg: "200px", base: "25%" }} left={{ lg: "105px", base: "5px", md: "15px" }} maxW={"900px"} spacing={5} >
+        <Heading fontSize={{ lg: "47px", base: "32px" }} color={"#fff"} lineHeight={"1.6em"}>{desc}</Heading>
+        <Text fontSize={{ lg: "23px", base: "16px" }} color={"#fff"} fontStyle={"italic"} >{title}</Text>
+
+        <Button style={{ background: "#fff", width: "230px", height: "45px", marginTop: "16px", fontWeight: "600" }} onClick={()=>!isOpen && onOpen && onOpen()} > TÌM HIỂU THÊM</Button>
+
+      </SimpleGrid>
+  
+    </Box>
+  );
+
+};
+const SwiperContainer = styled.div`
+.swiper-button-next, .swiper-button-prev {
+  color: #fff;
+}
+.swiper-button-prev:after,.swiper-container-rtl .swiper-button-next:after {
+  font-size:30px
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+  font-size:30px
 }
 
-const Feature = ({ text, icon, iconBg }: FeatureProps) => {
-  return (
-    <Stack
-      direction={"row"}
-      align={"center"}
-      fontSize={{ base: ".8rem", md: "1rem" }}
-    >
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={iconBg}
-      >
-        {icon}
-      </Flex>
-      <Text
-        fontWeight={600}
-        textShadow={
-          "10px 10px 25px rgb(65 121 179), -10px 10px 25px rgb(65 121 179), -10px -10px 25px rgb(65 121 179), 10px -10px 25px rgb(65 121 179);"
-        }
-      >
-        {text}
-      </Text>
-    </Stack>
-  );
-};
-
-const MotionBanner = ({ children }: { children: ReactNode }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 2 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
+}`
+const ImageOverlay = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.4); 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+@media (max-width: 820px) {
+  top: -400px;
+}
+@media (max-width: 420px) {
+  top: -210px;
+}
+`;
+const NavButton = styled.button`
+display: flex;
+width: 40px;
+height: 40px;
+border: none;
+    outline: none;
+    background-color: hsl(0, 0%, 100%);
+    color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.5s;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    &:hover {
+      background-color: hsl(
+        40.08298755186722,
+        96.7871485943775%,
+        48.82352941176471%
+      );
+      cursor: pointer;
+      color: #ffffff;
+    }
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+`;
 export const Banner = () => {
-  return (
-    <Box
-      bgImage={"url('/dai_hoc_thai_nguyen.jpg')"}
-      bgRepeat={"no-repeat"}
-      bgSize={"cover"}
-      py={"48px"}
-      h={"50vh"}
-    >
-      <MotionBanner>
-        <Container maxW={"4xl"} py={12}>
-          {/* <VStack spacing={4} p={"24px"} bg={"white"} >
-            <Center>
-              <Text
-                textTransform={"uppercase"}
-                color={"#fc5934"}
-                fontWeight={600}
-                fontSize={{ base: ".6rem", md: "sm", lg: "lg" }}
-                bg={"red.50"}
-                p={2}
-                alignSelf={"flex-start"}
-                rounded={"md"}
-                textShadow={
-                  "10px 10px 25px rgb(133 48 48 / 86%), -10px 10px 25px rgb(133 48 48 / 86%), -10px -10px 25px rgb(133 48 48 / 86%), 10px -10px 25px rgb(133 48 48 / 86%);"
-                }
-              >
-                Tuyển sinh hệ từ xa E - learning
-              </Text>
-            </Center>
-            <Heading
-              as={"h1"}
-              color={"blue.900"}
-              size={{ base: "md", md: "lg", lg: "2xl" }}
-              textShadow={
-                "10px 10px 25px rgb(65 121 179), -10px 10px 25px rgb(65 121 179), -10px -10px 25px rgb(65 121 179), 10px -10px 25px rgb(65 121 179);"
-              }
-              py={"16px"}
-            >
-              Đại học Thái Nguyên
-            </Heading>
-            <Text
-              color={"blue.900"}
-              fontSize={{ base: "sm", lg: "md" }}
-              fontWeight={600}
-              textAlign={"center"}
-              textShadow={
-                "10px 10px 25px rgb(65 121 179), -10px 10px 25px rgb(65 121 179), -10px -10px 25px rgb(65 121 179), 10px -10px 25px rgb(65 121 179);"
-              }
-            >
-              Chương trình tuyển sinh đại học từ xa Đại học Thái Nguyên - Sở hữu
-              bằng Đại học tương đương hệ chính quy ngay tại nhà
-            </Text>
-            <Stack
-              pt={"12px"}
-              spacing={4}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue("gray.100", "gray.700")}
-                />
-              }
-            >
-              <Feature
-                icon={
-                  <Icon as={BsPiggyBank} color={"yellow.500"} w={5} h={5} />
-                }
-                iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                text={"Tiết kiệm thời gian"}
-              />
-              <Feature
-                icon={<Icon as={BiHome} color={"green.500"} w={5} h={5} />}
-                iconBg={"green.100"}
-                text={"Học online tại nhà"}
-              />
+  const teachers = [
+    {
+      title: "Ứng dụng nền tảng Đại học số tiên tiến, Tuyển sinh liên tục, Xét duyệt hồ sơ dự tuyển, Bằng cấp tương đương hệ chính quy      ",
+      avt: `/banner-ptit.jpg`,
+      desc: `ĐẠI HỌC TỪ XA`
+    },
+    {
+      title: "Với hệ đào tạo từ xa PTIT, chương trình học được thiết kế theo quy chuẩn của Bộ GD&ĐT, đảm bảo cho học viên đầy đủ kiến thức chuyên môn và kinh nghiệm thực hành thực tế, thỏa sức theo đuổi đam mê.",
+      avt: `/bannerptit1.png`,
+      desc: `CÁC NGÀNH ĐÀO TẠO "HOT"`
+    },
 
-              <Feature
-                icon={<Icon as={PiCertificate} color={"#fc5934"} w={5} h={5} />}
-                iconBg={"#fc593473"}
-                text={"Bằng cử nhân do Bộ Giáo dục và đào tạo công nhận"}
-              />
-            </Stack>
-          </VStack> */}
-        </Container>
-      </MotionBanner>
-    </Box>
+  ];
+  return (
+    <SwiperContainer >
+      <Swiper
+        spaceBetween={30}
+        effect={"fade"}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        modules={[Autoplay, EffectFade, Navigation]}
+        className="mySwiper"
+        pagination={{
+          type: 'fraction',
+        }}
+        navigation={true}
+      >
+        {teachers?.map((teacher, index) => (
+          <SwiperSlide key={index} className="swiperSlide">
+            <CardBanner
+              key={index}
+              desc={teacher.desc}
+              title={teacher.title}
+              image={teacher.avt}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+    </SwiperContainer>
   );
 };

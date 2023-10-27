@@ -5,24 +5,27 @@ import {
   ModalContent,
   ModalOverlay,
 } from "@chakra-ui/react";
-import { FormPoup } from "../../components/FormContact";
+import { ReactNode } from "react";
+import { useContext } from "react";
 
 interface IModalBase {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  form: ReactNode;
 }
 
+
 export const ModalBase = (props: IModalBase) => {
-  const { onClose, isOpen } = props;
+  const { onClose, isOpen, form } = props;
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose}  isCentered>
         <ModalOverlay />
-        <ModalContent bg={"white"} pt={"12px"} rounded={"sm"} px={"12px"}>
+        <ModalContent bg={"white"} >
           <ModalCloseButton />
-          <ModalBody rounded={"sm"}>
-            <FormPoup title="Để lại thông tin" />
+          <ModalBody p={0}>
+              {form}
           </ModalBody>
         </ModalContent>
       </Modal>

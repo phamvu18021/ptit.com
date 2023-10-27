@@ -1,8 +1,8 @@
-import { CardProgramQtkd } from "@/components/CardProgramQtkd";
+import { IntroduceKtdtvt } from "@/components/CardIntroduceNganh";
+import { CardProgramKtdtvt } from "@/components/CardProgramKtdtvt";
 import { HeadSection } from "@/components/HeadSection";
-import { InputMajorqtkd } from "@/components/InputMajor";
+import { InputMajordtvt } from "@/components/InputMajor";
 import { RouterNganh } from "@/components/RouterNganh";
-
 import {
   Box,
   Breadcrumb,
@@ -10,11 +10,10 @@ import {
   BreadcrumbLink,
   Container,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import Image from "next/image";
-import { IntroduceQtkd } from "@/components/CardIntroduceNganh";
-import { CardOpportunityQtkd } from "@/components/CardOpportunityQtkd";
-
-export const Qtkd = () => {
+import { CardOpportunityKtdtvt } from "@/components/CardOpportunityKtdtvt";
+export const Ktdtvt = () => {
   return (
     <>
       <Box margin={"0 auto"} minH={"214px"} bg={"#F8F9FA"}>
@@ -25,26 +24,30 @@ export const Qtkd = () => {
             fontWeight={"bold"}
           >
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
+              <BreadcrumbLink as={Link} href={"/"}>
+                Trang chủ
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/nganh-hoc">Ngành học </BreadcrumbLink>
+              <BreadcrumbLink as={Link} href={"/nganh-hoc"}>
+                Ngành học{" "}
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <BreadcrumbLink
-                href="/nganh-quan-tri-kinh-doanh"
+                href="/nganh-ky-thuat-dien-tu-vien-thong"
                 color={"#000 !important"}
               >
-                Quản trị kinh doanh
+                Kỹ thuật điện tử viễn thông{" "}
               </BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <HeadSection subtitle="Quản trị kinh doanh " />
+          <HeadSection subtitle="Kỹ thuật điện tử viễn thông " />
         </Container>
       </Box>
-      <InputMajorqtkd />
+      <InputMajordtvt />
       <RouterNganh />
-      <IntroduceQtkd />
+      <IntroduceKtdtvt />
       <Box id="sectionBenefit" pt={{ lg: 10, base: 20 }}>
         <Container maxW={"1682px"} margin={"0 auto"}>
           <Image
@@ -56,8 +59,8 @@ export const Qtkd = () => {
           />
         </Container>
       </Box>
-      <CardProgramQtkd />
-      <CardOpportunityQtkd />
+      <CardProgramKtdtvt />
+      <CardOpportunityKtdtvt />
     </>
   );
 };
